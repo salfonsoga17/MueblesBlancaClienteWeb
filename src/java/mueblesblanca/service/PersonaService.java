@@ -5,6 +5,8 @@
  */
 package mueblesblanca.service;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import mueblesblanca.dao.PersonaDAO;
 import mueblesblanca.dao.PersonaDAOMS;
@@ -14,7 +16,6 @@ import mueblesblanca.vo.PersonaVO;
  *
  * @author Sergio AlfonsoG
  */
-
 public class PersonaService {
 
     private static PersonaDAO personaDAO;
@@ -30,9 +31,9 @@ public class PersonaService {
         } catch (Exception e) {
             System.out.println("PersonaService: Se presento un error al "
                     + "insertar: " + e.getMessage());
-        } finally {
-            return resultado;
         }
+        return resultado;
+
     }
 
     public int actualizar(PersonaVO personaVO) throws Exception {
@@ -42,9 +43,9 @@ public class PersonaService {
         } catch (Exception e) {
             System.out.println("PersonaService: Se presento un error al "
                     + "actualizar: " + e.getMessage());
-        } finally {
-            return resultado;
         }
+        return resultado;
+
     }
 
     public ArrayList<PersonaVO> listar() throws Exception {
@@ -55,9 +56,9 @@ public class PersonaService {
         } catch (Exception e) {
             System.out.println("PersonaService: Se presento un error al "
                     + "listar la tabla: " + e.getMessage());
-        } finally {
-            return lista;
         }
+        return lista;
+
     }
 
     public PersonaVO consultarPorId(long idPersona) throws Exception {
@@ -67,11 +68,11 @@ public class PersonaService {
         } catch (Exception e) {
             System.out.println("PesonaService: Se presento un error al "
                     + "consultar por id en la tabla: " + e.getMessage());
-        } finally {
-            return personaVO;
         }
+        return personaVO;
+
     }
-    
+
     public int eliminarPorId(long idPersonaNatural) throws Exception {
         int resultado = -1;
         try {
@@ -79,11 +80,51 @@ public class PersonaService {
         } catch (Exception e) {
             System.out.println("PersonaService: Se presento un error al "
                     + "consultar por id en la tabla: " + e.getMessage());
-        } finally {
-            return resultado;
         }
+        return resultado;
+
+    }
+
+    public PersonaVO consultByEmail(String email) throws Exception {
+        PersonaVO user = new PersonaVO();
+        try {
+            user = personaDAO.findByEmail(email);
+        } catch (Exception e) {
+            System.out.println("UsuarioService: Se presento un error al "
+                    + "consultar por id en la tabla: " + e.getMessage());
+        }
+
+        return user;
+
+    }
+
+    public PersonaVO authenticateUser(String email, String password) throws Exception {
+        PersonaVO usuario = consultByEmail(email);
+        if (usuario != null) {
+            if (usuario.getPasswordPersona().equals(convertSHA256(password))) {
+                return usuario;
+            }
+        }
+        return null;
+
+    }
+
+    public String convertSHA256(String password) {
+        MessageDigest md;
+        try {
+            md = MessageDigest.getInstance("SHA-256");
+        } catch (NoSuchAlgorithmException e) {
+            return null;
+        }
+
+        byte[] hash = md.digest(password.getBytes());
+        StringBuilder sb = new StringBuilder();
+
+        for (byte b : hash) {
+            sb.append(String.format("%02x", b));
+        }
+
+        return sb.toString();
     }
 
 }
-
-

@@ -11,12 +11,11 @@ import java.sql.Timestamp;
  *
  * @author Sergio AlfonsoG
  */
-
 public class PersonaVO {
-     
+
     private Integer idPersona;
     private Long numeroIdentificacionPersona;
-    private TipoDocumentoVO idTipoDocumentoPersona;
+    private TipoDocumentoVO TipoDocumentoPersona;
     private String primerNombrePersona;
     private String segundoNombrePersona;
     private String primerApellidoPersona;
@@ -24,11 +23,19 @@ public class PersonaVO {
     private String emailPersona;
     private Long celularPersonaNatural;
     private String direccionPersona;
-    private RolVO idRolPersona;
+    private RolVO RolPersona;
+
+    public RolVO getRolPersona() {
+        return RolPersona;
+    }
+
+    public void setRolPersona(RolVO RolPersona) {
+        this.RolPersona = RolPersona;
+    }
     private String passwordPersona;
     private Timestamp fechaCreacionPersona;
     private Timestamp fechaModificacionPersona;
-    
+
     public Integer getIdPersona() {
         return idPersona;
     }
@@ -45,12 +52,12 @@ public class PersonaVO {
         this.numeroIdentificacionPersona = numeroIdentificacionPersona;
     }
 
-    public TipoDocumentoVO getIdTipoDocumentoPersona() {
-        return idTipoDocumentoPersona;
+    public TipoDocumentoVO getTipoDocumentoPersona() {
+        return TipoDocumentoPersona;
     }
 
-    public void setIdTipoDocumentoPersona(TipoDocumentoVO idTipoDocumentoPersona) {
-        this.idTipoDocumentoPersona = idTipoDocumentoPersona;
+    public void setTipoDocumentoPersona(TipoDocumentoVO TipoDocumentoPersona) {
+        this.TipoDocumentoPersona = TipoDocumentoPersona;
     }
 
     public String getPrimerNombrePersona() {
@@ -109,14 +116,6 @@ public class PersonaVO {
         this.direccionPersona = direccionPersona;
     }
 
-    public RolVO getIdRolPersona() {
-        return idRolPersona;
-    }
-
-    public void setIdRolPersona(RolVO idRolPersona) {
-        this.idRolPersona = idRolPersona;
-    }
-
     public String getPasswordPersona() {
         return passwordPersona;
     }
@@ -140,5 +139,5 @@ public class PersonaVO {
     public void setFechaModificacionPersona(Timestamp fechaModificacionPersona) {
         this.fechaModificacionPersona = fechaModificacionPersona;
     }
-    
+
 }

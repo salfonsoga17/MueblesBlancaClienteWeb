@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <link href="css/lib/bootstrap.min.css" />
+        </f:facet>
+        <title>Login | Usuario</title>
+    </h:head>
+
+    <h:body styleClass="login-body">
+        <div class="login-panel ui-fluid">
+            <div class="ui-g">
+                <div class="ui-g-12 logo-container">
+                    <p:graphicImage name="images/login/login-logo.png" library="poseidon-layout" />
+                </div>
+                <h:form class="login-form" id="login_form">
+                    <p:growl id="growl" showDetail="true" sticky="true" />
+                    <div class="ui-g-12">
+                        <p:inputText placeholder="Correo"  id="email" value="#{loginBean.email}" required="true"/>
+                    </div>
+                    <div class="ui-g-12">
+                        <p:password placeholder="Contraseña" feedback="false" value="#{loginBean.password}" required="true"/>
+                    </div>
+                    <div class="ui-g-12 button-container">
+                        <p:commandButton action="#{loginBean.doLogin}"
+                                         value="Ingresar"
+                                         onclick="PF('statusDialog').show();"
+                                         style="width: 100%;padding: 8px;font-weight: bold" 
+                                         update="@form,growl">
+                        </p:commandButton>
+                    </div>
+                    <div><center><a href="register.xhtml">¿No tienes cuenta?. ¡Registrate!</a></center></div>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
+
+</html>
