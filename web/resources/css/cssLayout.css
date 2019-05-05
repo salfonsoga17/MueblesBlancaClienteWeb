@@ -1,0 +1,143 @@
+#top {
+	position: relative;
+	background-color: #096A98;
+	color: white;
+	padding: 5px;
+	margin: 0px 0px 0px 0px;
+}
+
+#bottom {
+	position: relative;
+	background-color: #096a98;
+	padding: 5px;
+	margin: 10px 0px 0px 0px;
+}
+
+#left {
+	float: left;
+	background-color: #096a98;
+	padding: 5px;
+	color: white;
+	width: 150px;
+	height: 1024px;
+}
+
+#right {
+	float: right;
+	background-color: #ece3a5;
+	padding: 5px;
+	width: 150px;
+}
+
+.center_content {
+	position: relative;
+	background-color: #dddddd;
+	padding: 5px;
+}
+
+.left_content {
+	/* background-color: #dddddd; */
+	padding: 5px;
+	margin-left: 170px;
+	overflow-y: scroll;
+	height: 1024px;
+}
+
+.content {
+	padding: 5px;
+}
+
+.right_content {
+	background-color: #dddddd;
+	padding: 5px;
+	margin: 0px 170px 0px 170px;
+}
+
+#top a:link, #top a:visited {
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#top a:link:hover, #top a:visited:hover {
+	color: black;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.highlightTableRow {
+	background: #fb6464 !important;
+	font-weight: bold;
+}
+
+.redColoredPanel .ui-widget-header {
+	background: #fb6464 !important;
+}
+
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+#header {
+	float: right;
+	margin-top: 2%;
+	/* width: 500px; */
+	font-family: Arial, Helvetica, Sans-Serif;
+	margin-top: 1%;
+	position: relative;
+	z-index: 999;
+}
+
+ul, ol {
+	list-style: none;
+}
+
+.nav li a {
+	background-color: #036fab;
+	color: #fff;
+	text-decoration: none;
+	padding: 10px 15px;
+	display: block;
+}
+
+.nav li label {
+	background-color: #036fab;
+	color: #fff;
+	text-decoration: none;
+	padding: 10px 15px;
+	display: block;
+}
+
+.nav li a:hover {
+	background-color: #036fab;
+}
+
+.nav li ul {
+	display: none;
+	position: absolute;
+	/* min-height: 140px; */
+}
+
+.nav li:hover>ul {
+	display: block;
+}
+
+.nav li ul li {
+	position: relative;
+}
+
+.nav li ul li ul {
+	/* right: -140px; */
+	top: 0px;
+}
+
+.nav>li {
+	/* float: left; */
+	
+}
+
+.companyHeaderGrid.ui-panelgrid>*>tr, .companyHeaderGrid.ui-panelgrid .ui-panelgrid-cell
+	{
+	border: none;
+}

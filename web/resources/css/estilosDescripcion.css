@@ -1,0 +1,23 @@
+div#contenedorDescripcion{
+   margin: 0 auto;
+}
+
+div#contenedorDescripcion h1{
+    color:#993399;
+    text-align: center;
+    padding-top: 20px;
+    font-family: Verdana
+}
+
+div#contenedorDescripcion table{
+    width: 400px;
+    margin: 0 auto; 
+    padding-top: 15px;
+}
+
+div#contenedorDescripcion table tr td{
+    width: 200px;
+    height: 30px;
+    border-bottom: 1px solid;
+}
+

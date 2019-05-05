@@ -1,0 +1,82 @@
+div#contenedorForm{
+    padding: 0;
+    margin: 0;
+    font-family: Verdana,Tahoma,Arial,sans-serif;
+    height: 100%;
+}
+
+div#contenedorTitulo{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #111111;
+    text-align: center;
+    color:#ffffff;
+}
+
+div#contenedorTitulo p{
+    padding-top: 20px;
+    font-weight: bold;
+    text-align: center;
+    color:#ffffff;
+}
+
+div#frmGeneral table{
+    width: 500px;
+}
+
+div#frmGeneral table tr td{
+    width: 250px;
+    height: 40px;
+}
+
+div#frmGeneral table tr td input{
+    width: 200px;
+    height: 30px;
+}
+
+.btnActionForm{
+    background-color: #CC9966;
+    border-color: #CC9966;
+    color: #ffffff;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.btnActionForm:hover{
+    background-color: #111111;
+}
+
+.txtGeneral{
+    width: 200px;
+    height: 30px;
+}
+
+div#frmActClave table{
+    width: 400px;
+}
+
+div#frmActClave table tr td{
+    width: 250px;
+    height: 40px;
+}
+
+div#frmActClave table tr td:first-child{
+    padding-left: 15px;
+}
+
+div#frmActClave table td{
+    width: 200px;
+    height: 25px;
+}
+
+
+
+

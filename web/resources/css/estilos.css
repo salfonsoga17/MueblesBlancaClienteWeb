@@ -1,0 +1,19 @@
+div#infoIzquierdo{
+    width: 500px;
+    height: 500px;
+    float: left;
+    margin: 15px 20px 0px 0px;
+    background-color: #ffffff;
+    border: 1px solid black;    
+    border-radius: 10px;
+}
+
+div#infoDerecho{
+    width: 500px;
+    height: 500px;
+    float: right;
+    margin: 15px 20px 0px 0px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    border-radius: 10px;
+}
