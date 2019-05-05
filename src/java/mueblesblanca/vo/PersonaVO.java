@@ -26,8 +26,8 @@ public class PersonaVO {
     private String direccionPersona;
     private RolVO idRolPersona;
     private String passwordPersona;
-    private Timestamp fechaCreacionPersonaNatural;
-    private Timestamp fechaModificacionPersonaNatural;
+    private Timestamp fechaCreacionPersona;
+    private Timestamp fechaModificacionPersona;
     
     public Integer getIdPersona() {
         return idPersona;
@@ -125,20 +125,20 @@ public class PersonaVO {
         this.passwordPersona = passwordPersona;
     }
 
-    public Timestamp getFechaCreacionPersonaNatural() {
-        return fechaCreacionPersonaNatural;
+    public Timestamp getFechaCreacionPersona() {
+        return fechaCreacionPersona;
     }
 
-    public void setFechaCreacionPersonaNatural(Timestamp fechaCreacionPersonaNatural) {
-        this.fechaCreacionPersonaNatural = fechaCreacionPersonaNatural;
+    public void setFechaCreacionPersona(Timestamp fechaCreacionPersona) {
+        this.fechaCreacionPersona = fechaCreacionPersona;
     }
 
     public Timestamp getFechaModificacionPersonaNatural() {
-        return fechaModificacionPersonaNatural;
+        return fechaModificacionPersona;
     }
 
-    public void setFechaModificacionPersonaNatural(Timestamp fechaModificacionPersonaNatural) {
-        this.fechaModificacionPersonaNatural = fechaModificacionPersonaNatural;
+    public void setFechaModificacionPersona(Timestamp fechaModificacionPersona) {
+        this.fechaModificacionPersona = fechaModificacionPersona;
     }
     
 }

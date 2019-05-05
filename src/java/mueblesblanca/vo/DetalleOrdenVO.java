@@ -5,6 +5,7 @@
  */
 package mueblesblanca.vo;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 /**
@@ -18,7 +19,7 @@ public class DetalleOrdenVO {
     private OrdenCompraVO idOrdenCompraDetalleCompra;
     private ProductoVO idProductoDetalleOrden;
     private Integer cantidadDetalleOrden;
-    private Long subtotalDetalleOrden; 
+    private BigDecimal subtotalDetalleOrden; 
     
     public Integer getIdDetalleOrden() {
         return idDetalleOrden;
@@ -52,11 +53,11 @@ public class DetalleOrdenVO {
         this.cantidadDetalleOrden = cantidadDetalleOrden;
     }
 
-    public Long getSubtotalDetalleOrden() {
+    public BigDecimal getSubtotalDetalleOrden() {
         return subtotalDetalleOrden;
     }
 
-    public void setSubtotalDetalleOrden(Long subtotalDetalleOrden) {
+    public void setSubtotalDetalleOrden(BigDecimal subtotalDetalleOrden) {
         this.subtotalDetalleOrden = subtotalDetalleOrden;
     }
     

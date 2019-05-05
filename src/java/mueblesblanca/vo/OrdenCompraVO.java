@@ -5,6 +5,7 @@
  */
 package mueblesblanca.vo;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 /**
@@ -18,7 +19,7 @@ public class OrdenCompraVO {
     private PersonaVO idPersonaOrdenCompra;
     private Timestamp fechaCompraOrdenCompra;
     private Timestamp fechaPagoOrdenCompra;
-    private Long totalOrdenCompra;    
+    private BigDecimal totalOrdenCompra;    
     
     public Integer getIdOrdenCompra() {
         return idOrdenCompra;
@@ -52,11 +53,11 @@ public class OrdenCompraVO {
         this.fechaPagoOrdenCompra = fechaPagoOrdenCompra;
     }
 
-    public Long getTotalOrdenCompra() {
+    public BigDecimal getTotalOrdenCompra() {
         return totalOrdenCompra;
     }
 
-    public void setTotalOrdenCompra(Long totalOrdenCompra) {
+    public void setTotalOrdenCompra(BigDecimal totalOrdenCompra) {
         this.totalOrdenCompra = totalOrdenCompra;
     }
     
