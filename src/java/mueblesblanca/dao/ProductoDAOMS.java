@@ -27,7 +27,8 @@ public class ProductoDAOMS extends ConexionSQL implements ProductoDAO {
             String consulta = "SELECT IdProducto, NombreProducto, DescripcionProducto, AltoProducto, AnchoProducto, ColorProducto, "
                             + "MaterialProducto, GarantiaMesesProducto, ValorUnitarioProducto, IdImagenProducto, IdModeloProducto, "
                             + "IdCategoriaProducto, FechaCreacionProducto, UsuarioCreacionProducto, FechaModificacionProducto, "
-                            + "UsuarioModificacionProducto, EstadoProducto FROM Producto "
+                            + "UsuarioModificacionProducto, EstadoProducto, im.CodigoImagen FROM Producto "
+                            + " JOIN Imagen im ON Producto.IdImagenProducto = im.IdImagen "
                             + "WHERE EstadoProducto <> ? ";
 
             System.out.println("QUERY listar " + consulta);
@@ -47,15 +48,16 @@ public class ProductoDAOMS extends ConexionSQL implements ProductoDAO {
                 productoVO.setMaterialProducto(rs.getString(t++));
                 productoVO.setGarantiaMesesProducto(rs.getInt(t++));
                 productoVO.setValorUnitarioProducto(rs.getBigDecimal(t++));
-                productoVO.getIdImagenProducto().setIdImagen(rs.getInt(t++));
-                productoVO.getIdModeloProducto().setIdModelo(rs.getInt(t++));
-                productoVO.getIdCategoria().setIdCategoria(rs.getInt(t++));               
+                productoVO.getImagenProducto().setIdImagen(rs.getInt(t++));
+                productoVO.getModeloProducto().setIdModelo(rs.getInt(t++));
+                productoVO.getCategoriaProducto().setIdCategoria(rs.getInt(t++));               
                 productoVO.setFechaCreacionProducto(rs.getTimestamp(t++));
                 productoVO.setUsuarioCreacionProducto(rs.getString(t++));
                 productoVO.setFechaModificacionProducto(rs.getTimestamp(t++));
                 productoVO.setUsuarioModificacionProducto(rs.getString(t++));
                 productoVO.setEstadoProducto(rs.getInt(t++));
-
+                productoVO.getImagenProducto().setCodigoImagen(rs.getBytes(t++));
+                
                 lista.add(productoVO);
             }
         } catch (Exception e) {
@@ -76,7 +78,8 @@ public class ProductoDAOMS extends ConexionSQL implements ProductoDAO {
             String consulta = "SELECT IdProducto, NombreProducto, DescripcionProducto, AltoProducto, AnchoProducto, ColorProducto, "
                             + "MaterialProducto, GarantiaMesesProducto, ValorUnitarioProducto, IdImagenProducto, IdModeloProducto, "
                             + "IdCategoriaProducto, FechaCreacionProducto, UsuarioCreacionProducto, FechaModificacionProducto, "
-                            + "UsuarioModificacionProducto, EstadoProducto FROM Producto "
+                            + "UsuarioModificacionProducto, EstadoProducto, im.CodigoImagen FROM Producto "
+                            + " JOIN Imagen im ON Producto.IdImagenProducto = im.IdImagen "
                             + "WHERE IdProducto = ? ";
 
             System.out.println("QUERY consultarPorId " + consulta);
@@ -96,14 +99,16 @@ public class ProductoDAOMS extends ConexionSQL implements ProductoDAO {
                 productoVO.setMaterialProducto(rs.getString(t++));
                 productoVO.setGarantiaMesesProducto(rs.getInt(t++));
                 productoVO.setValorUnitarioProducto(rs.getBigDecimal(t++));
-                productoVO.getIdImagenProducto().setIdImagen(rs.getInt(t++));
-                productoVO.getIdModeloProducto().setIdModelo(rs.getInt(t++));
-                productoVO.getIdCategoria().setIdCategoria(rs.getInt(t++));               
+                productoVO.getImagenProducto().setIdImagen(rs.getInt(t++));
+                productoVO.getModeloProducto().setIdModelo(rs.getInt(t++));
+                productoVO.getCategoriaProducto().setIdCategoria(rs.getInt(t++));               
                 productoVO.setFechaCreacionProducto(rs.getTimestamp(t++));
                 productoVO.setUsuarioCreacionProducto(rs.getString(t++));
                 productoVO.setFechaModificacionProducto(rs.getTimestamp(t++));
                 productoVO.setUsuarioModificacionProducto(rs.getString(t++));
                 productoVO.setEstadoProducto(rs.getInt(t++));
+                productoVO.getImagenProducto().setCodigoImagen(rs.getBytes(t++));
+                
             }
 
         } catch (Exception e) {

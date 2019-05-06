@@ -59,7 +59,7 @@ public class SingleBean {
     }
 
     public void preRenderView() throws Exception {
-        System.out.println("HOla " + getIdProducto());
+        System.out.println("IdProducto " + getIdProducto());
         int idProductoVista;
 
         idProductoVista = getIdProducto();

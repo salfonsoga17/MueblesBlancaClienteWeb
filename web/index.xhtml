@@ -193,25 +193,10 @@
                 <div class="slide-visual">
                     <!-- Slide Image Area (1000 x 424) -->
                     <ul class="slide-group">
-                        <li><img class="img-responsive" src="resources/imagenes/portada.jpg" alt="Dummy Image" /></li>
-                        <li><img class="img-responsive" src="resources/imagenes/sofa botones.jpg" alt="Dummy Image" /></li>
-                        <li><img class="img-responsive" src="resources/imagenes/sofa italiano.jpg" alt="Dummy Image" /></li>
+                        <li><img class="img-responsive" src="resources/imagenes/portada.jpg" alt="Dummy Image" width="1000" height="424" /></li>
+                        <li><img class="img-responsive" src="resources/imagenes/sofa botones.jpg" alt="Dummy Image" width="1000" height="424" /></li>
+                        <li><img class="img-responsive" src="resources/imagenes/sofa italiano.jpg" alt="Dummy Image" width="1000" height="424" /></li>
                     </ul>
-                    <!-- Slide Description Image Area (316 x 328)
-                    <div class="script-wrap">
-                        <ul class="script-group">
-                            <li><div class="inner-script"><img class="img-responsive" src="images/baa1.jpg" alt="Dummy Image" /></div></li>
-                            <li><div class="inner-script"><img class="img-responsive" src="images/baa2.jpg" alt="Dummy Image" /></div></li>
-                            <li><div class="inner-script"><img class="img-responsive" src="images/baa3.jpg" alt="Dummy Image" /></div></li>
-                        </ul>
-                        <div class="slide-controller">
-                            <a href="#" class="btn-prev"><img src="images/btn_prev.png" alt="Prev Slide" /></a>
-                            <a href="#" class="btn-play"><img src="images/btn_play.png" alt="Start Slide" /></a>
-                            <a href="#" class="btn-pause"><img src="images/btn_pause.png" alt="Pause Slide" /></a>
-                            <a href="#" class="btn-next"><img src="images/btn_next.png" alt="Next Slide" /></a>
-                        </div>
-                    </div> 
-                    <div class="clearfix"></div>-->
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -231,73 +216,7 @@
 
         </div>
         <!-- //banner -->
-        <!-- content -->
-        <!--<div class="new_arrivals">
-            <div class="container">
-                <h3><span>Nuevos </span>Lanzamientos</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
-            </div>
-        </div>-->
-        <!-- //content -->
-        <!-- content-bottom -->
-        <!--<div class="content-bottom">
-            <div class="col-md-7 content-lgrid">
-                <div class="col-sm-6 content-img-left text-center">
-                    <div class="content-grid-effect slow-zoom vertical">
-                        <div class="img-box"><img src="images/p1.jpg" alt="image" class="img-responsive zoom-img"/></div>
-                        <div class="info-box">
-                            <div class="info-content simpleCart_shelfItem">
-                                <h4>Sillas</h4>
-                                <span class="separator"></span>
-                                <p><span class="item_price">$550.000</span></p>
-                                <span class="separator"></span>
-                                <a class="item_add hvr-outline-out button2" href="#">añadir al carrito</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 content-img-right">
-                    <h3>Special Offers and 50%<span>Discount On</span> Mobiles</h3>
-                </div>
-
-                <div class="col-sm-6 content-img-right">
-                    <h3>Buy 1 get 1  free on <span> Branded</span> Watches</h3>
-                </div>
-                <div class="col-sm-6 content-img-left text-center">
-                    <div class="content-grid-effect slow-zoom vertical">
-                        <div class="img-box"><img src="images/p2.jpg" alt="image" class="img-responsive zoom-img"/></div>
-                        <div class="info-box">
-                            <div class="info-content simpleCart_shelfItem">
-                                <h4>Watches</h4>
-                                <span class="separator"></span>
-                                <p><span class="item_price">$250</span></p>
-                                <span class="separator"></span>
-                                <a class="item_add hvr-outline-out button2" href="#">add to cart </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="col-md-5 content-rgrid text-center">
-                <div class="content-grid-effect slow-zoom vertical">
-                    <div class="img-box"><img src="images/p4.jpg" alt="image" class="img-responsive zoom-img"/></div>
-                    <div class="info-box">
-                        <div class="info-content simpleCart_shelfItem">
-                            <h4>Shoes</h4>
-                            <span class="separator"></span>
-                            <p><span class="item_price">$150</span></p>
-                            <span class="separator"></span>
-                            <a class="item_add hvr-outline-out button2" href="#">add to cart </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-        </div>-->
-        <!-- //content-bottom -->
         <!-- product-nav -->
-
         <div class="product-easy">
             <div class="container">
 
@@ -324,9 +243,9 @@
                                 <p:dataScroller value="#{productoBean.productos}" var="producto" >
                                     <div class="col-md-6 product-men">
                                         <div class="men-pro-item simpleCart_shelfItem">
-                                            <div class="men-thumb-item"> 
-                                                <img src="data:image/png;base64,${producto.imagenProducto}" alt="" class="pro-image-front"/>
-                                                <img src="data:image/png;base64,${producto.imagenProducto}" alt="" class="pro-image-back"/>
+                                            <div class="men-thumb-item">
+                                                <img src="data:image/png;base64,${producto.imagenProducto.imagenFoto}" alt="" class="pro-image-front"/>
+                                                <img src="data:image/png;base64,${producto.imagenProducto.imagenFoto}" alt="" class="pro-image-back"/>
                                                 <div class="men-cart-pro">
                                                     <div class="inner-men-cart-pro">
                                                         <h:link value="Vista Rápida" outcome="single.xhtml" class="link-product-add-cart" >
@@ -345,7 +264,7 @@
                                                     </b>
                                                 </h4>
                                                 <div class="info-product-price"> 
-                                                    <span class="item_price">$ #{producto.precioUnidadProducto}</span>
+                                                    <span class="item_price">$ #{producto.valorUnitarioProducto}</span>
                                                 </div>
                                                 <a href="#" class="item_add single-item hvr-outline-out button2">Añadir al carrito</a>									
                                             </div>                         
@@ -381,7 +300,7 @@
                     </div>
                     <div class="col-md-3 coupons-gd">
                         <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
-                        <h4>REALICE SU PAGO</h4>
+                        <h4>GENERE SU ORDEN</h4>
                         <p>Neque porro quisquam est, qui dolorem ipsum quia dolor
                             sit amet, consectetur.</p>
                     </div>
@@ -398,15 +317,6 @@
                         creamos e innovamos a menudo, síguenos.</p>
                 </div>
                 <div class="col-md-7 footer-right">
-                    <!--<div class="col-sm-6 newsleft">
-                        <h3>SIGN UP FOR NEWSLETTER !</h3>
-                    </div>
-                    <div class="col-sm-6 newsright">
-                        <form>
-                            <input type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required=""/>
-                            <input type="submit" value="Submit"/>
-                        </form>
-                    </div>--> 
                     <div class="clearfix"></div>
                     <div class="sign-grds">
                         <div class="col-md-4 sign-gd">
@@ -429,20 +339,6 @@
                                 <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>Teléfono : 3136091384</li>
                             </ul>
                         </div>
-                        <!--<div class="col-md-4 sign-gd flickr-post">
-                            <h4>Flickr Posts</h4>
-                            <ul>
-                                <li><a href="single.html"><img src="images/b15.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b16.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b17.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b18.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b15.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b16.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b17.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b18.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b15.jpg" alt=" " class="img-responsive" /></a></li>
-                            </ul>
-                        </div>-->
                         <div class="clearfix"></div>
                     </div>
                 </div>

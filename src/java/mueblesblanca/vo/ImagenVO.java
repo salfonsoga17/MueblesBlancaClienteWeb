@@ -17,12 +17,13 @@ public class ImagenVO {
     private Integer idImagen;
     private ProductoVO idProductoImagen;
     private String tituloImagen;
-    private String codigoImagen;
+    private byte[] codigoImagen;
     private Timestamp fechaCreacionImagen;
     private String usuarioCreaciónImagen;
     private Timestamp fechaModificaciónImagen;
     private String usuarioModificaciónImagen;
     private Integer estadoImagen;
+    private String imagenFoto;
     
     public Integer getIdImagen() {
         return idImagen;
@@ -48,11 +49,11 @@ public class ImagenVO {
         this.tituloImagen = tituloImagen;
     }
 
-    public String getCodigoImagen() {
+    public byte[] getCodigoImagen() {
         return codigoImagen;
     }
 
-    public void setCodigoImagen(String codigoImagen) {
+    public void setCodigoImagen(byte[] codigoImagen) {
         this.codigoImagen = codigoImagen;
     }
 
@@ -94,6 +95,19 @@ public class ImagenVO {
 
     public void setEstadoImagen(Integer estadoImagen) {
         this.estadoImagen = estadoImagen;
+    }
+
+    public String getImagenFoto() {
+        return imagenFoto;
+    }
+
+    public void setImagenFoto(String imagenFoto) {
+        this.imagenFoto = imagenFoto;
+    }
+
+    public void getCodigoImagen(byte[] bytes) {
+        throw new UnsupportedOperationException("Not supported yet."); 
+        //To change body of generated methods, choose Tools | Templates.
     }
     
 }
