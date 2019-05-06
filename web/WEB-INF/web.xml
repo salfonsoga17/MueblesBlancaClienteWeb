@@ -11,6 +11,10 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>
     <session-config>
@@ -18,6 +22,14 @@
             30
         </session-timeout>
     </session-config>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.xhtml</location>
+    </error-page> 
+    <context-param>
+        <param-name>primefaces.THEME</param-name>
+        <param-value>poseidon-turquoise</param-value>
+    </context-param>
     <welcome-file-list>
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>

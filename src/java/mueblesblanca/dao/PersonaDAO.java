@@ -24,5 +24,6 @@ public interface PersonaDAO {
     public ArrayList<PersonaVO> listar() throws Exception; 
     
     public PersonaVO consultarPorId(long id) throws Exception;
+    public PersonaVO findByEmail(String email) throws Exception;
     
 }
