@@ -173,14 +173,14 @@ public class RegisterBean implements Serializable {
         this.personalId = personalId.trim();
     }
     public void eliminateSpaces(){
-        
-        
-        firstName = new String();
-        secondName = new String();
-        firstSurname = new String();
-        secondSurname = new String();
-        address = new String();
-        personalId = new String();
-        phoneNumber = new String();
+        email = email.trim();
+        password = password.trim();
+        firstName = firstName.trim();
+        secondName = secondName.trim();
+        firstSurname = firstSurname.trim();
+        secondSurname = secondSurname.trim();
+        address = address.trim();
+        personalId = personalId.trim();
+        phoneNumber = phoneNumber.trim();
     }
 }

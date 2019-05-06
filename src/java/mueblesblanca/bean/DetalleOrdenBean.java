@@ -5,15 +5,8 @@
  */
 package mueblesblanca.bean;
 
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Blob;
-import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,12 +15,8 @@ import javax.faces.application.Application;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.imageio.ImageIO;
-import mueblesblanca.constante.EstadoEnum;
 import mueblesblanca.constante.EstadoEnumLista;
-import mueblesblanca.constante.UsuarioEnum;
 import mueblesblanca.service.DetalleOrdenService;
 import mueblesblanca.vo.DetalleOrdenVO;
 

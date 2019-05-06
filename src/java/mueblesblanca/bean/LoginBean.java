@@ -8,7 +8,10 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import mueblesblanca.service.PersonaService;
 import mueblesblanca.vo.PersonaVO;
-
+/**
+ * 
+ * @author Alexis Holguin
+ */
 @ManagedBean(name = "loginBean")
 @SessionScoped
 public class LoginBean  implements Serializable{
