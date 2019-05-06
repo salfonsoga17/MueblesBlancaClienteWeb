@@ -22,6 +22,10 @@
             30
         </session-timeout>
     </session-config>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.xhtml</location>
+    </error-page> 
     <context-param>
         <param-name>primefaces.THEME</param-name>
         <param-value>poseidon-turquoise</param-value>

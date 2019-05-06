@@ -24,3 +24,18 @@ build/
 hs_err_pid*
 /nbproject/private/
 /build/
+/dist/	# Compiled class file
+build/web/gfv3ee6.dpf	*.class
+build/web/WEB-INF/classes/mueblesblanca/dao/ConexionSQL.class	build/
+nbproject/private/private.xml	
+ nbproject/private/private.xml	# Log file
+src/java/mueblesblanca/dao/ConexionSQL.java	*.log
+src/java/mueblesblanca/dao/ConexionSQL.java	
+ nbproject/private/private.properties	# BlueJ files
+build/web/gfv3ee6.dpf	*.ctxt
+src/java/mueblesblanca/dao/ConexionSQL.java	
+ nbproject/private/private.properties	# Mobile Tools for Java (J2ME)
+build/web/WEB-INF/classes/mueblesblanca/dao/ConexionSQL.class	.mtj.tmp/
+build/web/WEB-INF/menu_1.xhtml	
+ nbproject/private/private.xml	# Package Files #
+src/java/mueblesblanca/dao/ConexionSQL.java
