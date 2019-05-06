@@ -1,0 +1,102 @@
+div#contenedorIzquierdo div#infoIzquierdo * {
+	margin: 0;
+	padding: 0;
+}
+
+
+div#contenedorIzquierdo div#infoIzquierdo li,h2{
+    font-family: Verdana;
+    font-size: 18px;
+    text-align: center;
+}
+
+
+div#contenedorIzquierdo div#infoIzquierdo h2, h3 {
+	font-family: Georgia;
+	font-style: italic;
+}
+
+div#contenedorIzquierdo div#infoIzquierdo h2{
+	font-size: 16px;	
+	color: #333333;
+	padding-bottom: 5px;
+}
+
+
+
+div#contenedorIzquierdo div#infoIzquierdo h3{
+	color: white;
+	font-size: 20px;
+}
+
+	div#contenedorIzquierdo div#infoIzquierdo h3 a{
+		color: #DB5C04;
+	}
+
+div#contenedorIzquierdo div#infoIzquierdo li{
+	list-style: none;	
+}
+
+div#contenedorIzquierdo div#infoIzquierdo #wrapper{
+	margin: 0px auto;
+	text-align: left;
+	width: 960px;
+}
+
+div#contenedorIzquierdo div#infoIzquierdo #paging_container1{
+	height: 320px;	
+}
+
+div#contenedorIzquierdo div#infoIzquierdo #paging_container2{
+	height: 356px;	
+}
+
+div#contenedorIzquierdo div#infoIzquierdo #paging_container3{
+	height: 190px;
+}
+
+#paging_container4{
+	/* height: 307px; */	
+	/* overflow: hidden; */
+}
+
+#paging_container8 .no_more{
+    background-color: white;
+    color: gray;
+    cursor: default;
+}
+
+div#contenedorIzquierdo div#infoIzquierdo .ellipse{
+	float: left;
+}
+
+div#contenedorIzquierdo div#infoIzquierdo .container{
+	width: 210px;
+	float: left;
+	background-color: white;
+}
+
+div#contenedorIzquierdo div#infoIzquierdo .page_navigation , .alt_page_navigation{
+	padding-bottom: 40px;
+}
+
+div#contenedorIzquierdo div#infoIzquierdo .page_navigation a, .alt_page_navigation a{
+	padding:3px 5px;
+	margin:2px;
+	color:white;
+	text-decoration:none;
+	float: left;
+	font-family: Tahoma;
+	font-size: 12px;
+	background-color: #CC9966;
+
+}
+
+div#contenedorIzquierdo div#infoIzquierdo .active_page{
+	background-color:#993399 !important;
+	color:white !important;
+}	
+
+div#contenedorIzquierdo div#infoIzquierdo .content, .alt_content{
+	color: black;
+}

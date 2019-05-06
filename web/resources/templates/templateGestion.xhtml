@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default.css" />
+        <h:outputStylesheet name="cssLayout.css" library="css" />
+        <link rel="icon" type="image/png"
+              href="../../resources/img/favicon.png" />
+        <title>Proyecto</title>
+        <style>		
+            .dialog .ui-dialog-titlebar {
+                background-color: #ff001e;
+                color: white;
+            }
+
+            .sinBorde.ui-panelgrid>*>tr, .sinBorde.ui-panelgrid .ui-panelgrid-cell {
+                border: none;
+            }
+        </style>
+    </h:head>
+
+    <h:body>
+
+        <p:dialog widgetVar="statusDialog" id="statusDialog" modal="true"
+                  draggable="false" closable="false" resizable="false"
+                  showHeader="false"  >
+            <p:graphicImage  library="img" name="cargando.gif" />
+        </p:dialog>
+
+        <div id="top" class="top">
+            <ui:insert name="top"></ui:insert>
+        </div>
+        <div>
+            <div id="left">
+                <ui:insert name="left"></ui:insert>
+            </div>
+            
+            <div id="content" class="left_content">
+                <ui:insert name="content">Content</ui:insert>
+            </div>
+        </div>
+    </h:body>
+</html>

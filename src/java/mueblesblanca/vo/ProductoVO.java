@@ -24,14 +24,21 @@ public class ProductoVO {
     private String materialProducto;
     private Integer garantiaMesesProducto;
     private BigDecimal valorUnitarioProducto;
-    private ImagenVO idImagenProducto;
-    private ModeloVO idModeloProducto;
-    private CategoriaVO idCategoria;
+    private ImagenVO imagenProducto;
+    private ModeloVO modeloProducto;
+    private CategoriaVO categoriaProducto;
     private Timestamp fechaCreacionProducto;
     private String usuarioCreacionProducto;
     private Timestamp fechaModificacionProducto;
     private String usuarioModificacionProducto;
     private Integer estadoProducto;
+    
+    //se instancian clases u objetos de llaves foraneas para evitar null 
+    public ProductoVO(){
+        this.imagenProducto = new ImagenVO();
+        this.modeloProducto = new ModeloVO();
+        this.categoriaProducto = new CategoriaVO();
+    }
     
     public Integer getIdProducto() {
         return idProducto;
@@ -105,29 +112,30 @@ public class ProductoVO {
         this.valorUnitarioProducto = valorUnitarioProducto;
     }
 
-    public ImagenVO getIdImagenProducto() {
-        return idImagenProducto;
+    public ImagenVO getImagenProducto() {
+        return imagenProducto;
     }
 
-    public void setIdImagenProducto(ImagenVO idImagenProducto) {
-        this.idImagenProducto = idImagenProducto;
+    public void setImagenProducto(ImagenVO imagenProducto) {
+        this.imagenProducto = imagenProducto;
     }
 
-    public ModeloVO getIdModeloProducto() {
-        return idModeloProducto;
+    public ModeloVO getModeloProducto() {
+        return modeloProducto;
     }
 
-    public void setIdModeloProducto(ModeloVO idModeloProducto) {
-        this.idModeloProducto = idModeloProducto;
+    public void setModeloProducto(ModeloVO modeloProducto) {
+        this.modeloProducto = modeloProducto;
     }
 
-    public CategoriaVO getIdCategoria() {
-        return idCategoria;
+    public CategoriaVO getCategoriaProducto() {
+        return categoriaProducto;
     }
 
-    public void setIdCategoria(CategoriaVO idCategoria) {
-        this.idCategoria = idCategoria;
+    public void setCategoriaProducto(CategoriaVO categoriaProducto) {
+        this.categoriaProducto = categoriaProducto;
     }
+
 
     public Timestamp getFechaCreacionProducto() {
         return fechaCreacionProducto;

@@ -27,7 +27,9 @@ import javax.imageio.ImageIO;
 import mueblesblanca.constante.EstadoEnum;
 import mueblesblanca.constante.EstadoEnumLista;
 import mueblesblanca.constante.UsuarioEnum;
+import mueblesblanca.service.ImagenService;
 import mueblesblanca.service.ProductoService;
+import mueblesblanca.vo.ImagenVO;
 import mueblesblanca.vo.ProductoVO;
 import sun.misc.BASE64Encoder;
 
@@ -69,7 +71,7 @@ public class ProductoBean implements Serializable {
 
     /// Services////////////
     private ProductoService productoService;
-
+    
     @PostConstruct
     public void init() {
         if (FacesContext.getCurrentInstance() != null) {
@@ -100,7 +102,7 @@ public class ProductoBean implements Serializable {
         } catch (Exception e) {
         }
     }
-
+    
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }

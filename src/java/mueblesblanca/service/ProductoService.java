@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import mueblesblanca.dao.ProductoDAO;
 import mueblesblanca.dao.ProductoDAOMS;
 import mueblesblanca.util.ConvertirBytesABase64;
+import mueblesblanca.vo.ImagenVO;
+import mueblesblanca.service.ImagenService;
 import mueblesblanca.vo.ProductoVO;
 
 /**
@@ -23,6 +25,7 @@ public class ProductoService {
 
     private static ProductoDAO productoDAO;
     private ConvertirBytesABase64 convertir;
+    private ImagenService imagenService;
 
     public ProductoService() {
         productoDAO = new ProductoDAOMS();
@@ -30,24 +33,23 @@ public class ProductoService {
         convertir = new ConvertirBytesABase64();
     }
 
-
     public ArrayList<ProductoVO> listar() throws Exception {
 
         ArrayList<ProductoVO> lista = new ArrayList<ProductoVO>();
-        /*ArrayList<ProductoVO> listaNueva = new ArrayList<ProductoVO>();*/
+        ArrayList<ProductoVO> listaNueva = new ArrayList<ProductoVO>();
         try {
             lista = productoDAO.listar();
 
-            /*for (ProductoVO p : lista) {
-                InputStream in = new ByteArrayInputStream(p.getFoto());
-                Blob blob = new javax.sql.rowset.serial.SerialBlob(p.getFoto());
+            for (ProductoVO p : lista) {
+                InputStream in = new ByteArrayInputStream(p.getImagenProducto().getCodigoImagen());
+                Blob blob = new javax.sql.rowset.serial.SerialBlob(p.getImagenProducto().getCodigoImagen());
                 String imagenBase64 = convertir.convertirABase64(in, blob);
-                p.setImagenProducto(imagenBase64);
+                p.getImagenProducto().setImagenFoto(imagenBase64);
                 listaNueva.add(p);
-                if (p.getImagenProducto() == null) {
+                if (p.getImagenProducto().getImagenFoto() == null) {
                     listaNueva.remove(p);
                 }
-            }*/
+            }
         } catch (Exception e) {
             System.out.println("ProductoService: Se presento un error al "
                     + "listar la tabla: " + e.getMessage());
@@ -60,10 +62,10 @@ public class ProductoService {
         ProductoVO productoVO = new ProductoVO();
         try {
             productoVO = productoDAO.consultarPorId(idProducto);
-            /*InputStream in = new ByteArrayInputStream(productoVO.getFoto());
-            Blob blob = new javax.sql.rowset.serial.SerialBlob(productoVO.getFoto());
+            InputStream in = new ByteArrayInputStream(productoVO.getImagenProducto().getCodigoImagen());
+            Blob blob = new javax.sql.rowset.serial.SerialBlob(productoVO.getImagenProducto().getCodigoImagen());
             String imagenBase64 = convertir.convertirABase64(in, blob);
-            productoVO.setImagenProducto(imagenBase64);*/
+            productoVO.getImagenProducto().setImagenFoto(imagenBase64);
 
         } catch (Exception e) {
             System.out.println("ProductoService: Se presento un error al "
