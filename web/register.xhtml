@@ -18,72 +18,75 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <div class="container">
-            <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+            <div id="loginbox" style="margin-top:50px;max-width: 50%; min-width: 300px;" class="container" >                    
 
                 <div class="panel-heading">
                     <center><div class="panel-title">Panel de registro</div></center>                        
                 </div>     
                 <div style="padding-top:30px" class="panel-body" >
-                    <h:form id="registerformUser" styleClass="form-horizontal">
-                        <div style="margin-bottom: 25px" class="form-group">
-                            <p:inputNumber id="register-personalid"  inputStyleClass="form-control"  decimalPlaces="0" value="#{registerBean.personalId}" placeholder="Tu numero de numero de indentificacion" required="true" requiredMessage="Ingresa tu numero de identificacion" ></p:inputNumber>
-                            <span class="help-block"><p:message for="register-personalid" display="text" /></span> 
-                        </div>
-                        <div style="margin-bottom: 25px" class="form-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <h:inputText id="register-firstname" class="form-control" value="#{registerBean.firstName}" required="true" requiredMessage="Ingresa tu primer nombre" ></h:inputText>
-                            <span class="help-block"><p:message for="register-firstname" display="text" /></span>
-                        </div>
-                        <div style="margin-bottom: 25px" class="form-group">
-                            <span class="input-group-addon"><i styleClass="glyphicon glyphicon-user"></i></span>
-                            <p:inputText id="register-secondname" styleClass="form-control" value="#{registerBean.secondName}" placeholder="Tu segundo nombre."></p:inputText>                                        
-                        </div>
-                        <div style="margin-bottom: 25px" class="form-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <p:inputText id="register-firstsurname" styleClass="form-control" value="#{registerBean.firstSurname}" placeholder="Tu primer apellido." required="true" requiredMessage="Ingresa tu primer apellido"></p:inputText>                                        
-                            <p:message for="register-firstsurname" display="text" />
-                        </div>
-                        <div style="margin-bottom: 25px" class="form-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <p:inputText id="register-secondsurname" styleClass="form-control" value="#{registerBean.secondSurname}" placeholder="Tu segundo apellido."></p:inputText>                                        
-                        </div>
+                    <div class="card" style="padding:  12px; margin: 15px;">
+                        <h:form id="registerformUser" styleClass="form-horizontal">
+                            <div style="margin-bottom: 25px" class="form-group">
+                                <h:outputLabel for="register-personalid" value="Numero de identificacion: *"/>
+                                <p:inputNumber id="register-personalid"  inputStyleClass="form-control"  decimalPlaces="0" value="#{registerBean.personalId}" required="true" requiredMessage="Ingresa tu numero de identificacion" ></p:inputNumber>
+                                <span class="help-block"><p:message for="register-personalid" display="text" /></span> 
+                            </div>
+                            <div style="margin-bottom: 25px" class="form-group">
+                                <h:outputLabel for="register-personalid" value="Primer Nombre: *"/>
+                                <h:inputText id="register-firstname" class="form-control" value="#{registerBean.firstName}" required="true" requiredMessage="Ingresa tu primer nombre" ></h:inputText>
+                                <span class="help-block"><p:message for="register-firstname" display="text" /></span>
+                            </div>
+                            <div style="margin-bottom: 25px" class="form-group">
+                                <h:outputLabel for="register-personalid" value="Segundo Nombre: "/>
+                                <p:inputText id="register-secondname" styleClass="form-control" value="#{registerBean.secondName}" ></p:inputText>                                        
+                            </div>
+                            <div style="margin-bottom: 25px" class="form-group">
+                                <h:outputLabel for="register-personalid" value="Primer Apellido: *"/>
+                                <p:inputText id="register-firstsurname" styleClass="form-control" value="#{registerBean.firstSurname}"  required="true" requiredMessage="Ingresa tu primer apellido"></p:inputText>                                        
+                                <p:message for="register-firstsurname" display="text" />
+                            </div>
+                            <div style="margin-bottom: 25px" class="form-group">
+                                <h:outputLabel for="register-personalid" value="Segundo Apellido: "/>
+                                <p:inputText id="register-secondsurname" styleClass="form-control" value="#{registerBean.secondSurname}" ></p:inputText>                                        
+                            </div>
 
-                        <div style="margin-bottom: 25px" class="form-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-                            <p:inputText id="register-address"  class="form-control" placeholder="Tu direccion" value="#{registerBean.address}" required="true" requiredMessage="Ingresa tu direccion"></p:inputText>
-                            <p:message for="register-address" display="text" />
-                        </div>
-                        <div style="margin-bottom: 25px" class="form-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-                            <p:inputText id="register-phoneNumber"  styleClass="form-control" placeholder="Tu celular" value="#{registerBean.phoneNumber}"></p:inputText>
-                        </div>
-                        <div style="margin-bottom: 25px" class="form-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                            <p:inputText id="register-email" type="email" styleClass="form-control" placeholder="Tu correo electronico." required="true" value="#{registerBean.email}" requiredMessage="Ingresa un email"></p:inputText>
-                            <p:message for="register-email" display="text" />
-                        </div>
+                            <div style="margin-bottom: 25px" class="form-group">
+                                <h:outputLabel for="register-personalid" value="Direccion: *"/>
+                                <p:inputText id="register-address"  class="form-control"  value="#{registerBean.address}" required="true" requiredMessage="Ingresa tu direccion"></p:inputText>
+                                <p:message for="register-address" display="text" />
+                            </div>
+                            <div style="margin-bottom: 25px" class="form-group">
+                                <h:outputLabel for="register-personalid" value="Celular: *"/>
+                                <p:inputText id="register-phoneNumber"  styleClass="form-control"  value="#{registerBean.phoneNumber}"></p:inputText>
+                            </div>
+                            <div style="margin-bottom: 25px" class="form-group">
+                                <h:outputLabel for="register-personalid" value="Correo Electronico: *"/>
+                                <p:inputText id="register-email" type="email" styleClass="form-control" required="true" value="#{registerBean.email}" requiredMessage="Ingresa un email"></p:inputText>
+                                <p:message for="register-email" display="text" />
+                            </div>
 
-                        <div style="margin-bottom: 25px" class="form-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <p:password id="register-password" styleClass="form-control"  placeholder="Tu contraseña." required="true" value="#{registerBean.password}" feedback="true"
-                                        promptLabel="Por favor ingrese una contrseña" weakLabel="debil"
-                                        goodLabel="bien" strongLabel="fuerte" requiredMessage="Ingresa una contraseña"></p:password>
-                        </div>
-                        <div style="margin-top:10px" class="form-group">
-                            <!-- Button -->
-                            <center>
-                                <div class="col-sm-12 controls">
-                                    <p:commandButton id="btn-login" styleClass="btn btn-primary" value="Registrarme" action="#{registerBean.insertar}" update="registerformUser" ></p:commandButton>
-                                </div>
-                            </center>
-                            <br/>
-                            <br/>
-                            <br/>
-                            <br/>
-                            <center><a href="login.xhtml">¿Ya tienes cuenta?. ¡Logueate :D!</a></center>
-                        </div>
+                            <div style="margin-bottom: 25px" class="form-group">
+                                <h:outputLabel for="register-personalid" value="Contraseña: *"/>
+                                <p:password id="register-password" styleClass="form-control" required="true" value="#{registerBean.password}" feedback="true"
+                                            promptLabel="Por favor ingrese una contrseña" weakLabel="debil"
+                                            goodLabel="bien" strongLabel="fuerte" requiredMessage="Ingresa una contraseña"></p:password>
+                            </div>
+                            <div style="margin-top:10px" class="form-group">
+                                <!-- Button -->
+                                <center>
+                                    <div class="col-sm-12 controls">
+                                        <p:commandButton id="btn-login" styleClass="btn btn-primary" value="Registrarme" action="#{registerBean.insertar}" update="registerformUser" ></p:commandButton>
+                                    </div>
+                                </center>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <center><a href="login.xhtml">¿Ya tienes cuenta?. ¡Logueate :D!</a></center>
+                            </div>
 
-                    </h:form>
+                        </h:form>
+                    </div>
                 </div>
             </div>
         </div>
