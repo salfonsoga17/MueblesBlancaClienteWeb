@@ -3,7 +3,8 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <h:head>
         <f:facet name="first">
@@ -18,6 +19,7 @@
 
     <h:body styleClass="login-body">
         <div id="login">
+            <p:growl id="growl" autoUpdate="true" showDetail="true"></p:growl>
             <h3 class="text-center text-white pt-5">Login form</h3>
             <div class="container">
                 <div id="login-row" class="row justify-content-center align-items-center">
