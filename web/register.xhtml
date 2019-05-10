@@ -19,7 +19,7 @@ and open the template in the editor.
     <h:body>
         <div class="container">
             <div id="loginbox" style="margin-top:50px;max-width: 50%; min-width: 300px;" class="container" >                    
-
+                <p:growl for="messagesRegister" autoUpdate="true" showDetail="true"></p:growl>
                 <div class="panel-heading">
                     <center><div class="panel-title">Panel de registro</div></center>                        
                 </div>     
@@ -27,8 +27,8 @@ and open the template in the editor.
                     <div class="card" style="padding:  12px; margin: 15px;">
                         <h:form id="registerformUser" styleClass="form-horizontal">
                             <div style="margin-bottom: 25px" class="form-group">
-                                <h:outputLabel for="register-personalid" value="Numero de identificacion: *"/>
-                                <p:inputNumber id="register-personalid"  inputStyleClass="form-control"  decimalPlaces="0" value="#{registerBean.personalId}" required="true" requiredMessage="Ingresa tu numero de identificacion" ></p:inputNumber>
+                                <h:outputLabel for="register-personalid" value="Numero de identificación: *"/>
+                                <p:inputNumber id="register-personalid"  inputStyleClass="form-control"  decimalPlaces="0" value="#{registerBean.personalId}" required="true" requiredMessage="Ingresa tu numero de identificación" ></p:inputNumber>
                                 <span class="help-block"><p:message for="register-personalid" display="text" /></span> 
                             </div>
                             <div style="margin-bottom: 25px" class="form-group">
@@ -51,16 +51,16 @@ and open the template in the editor.
                             </div>
 
                             <div style="margin-bottom: 25px" class="form-group">
-                                <h:outputLabel for="register-personalid" value="Direccion: *"/>
-                                <p:inputText id="register-address"  class="form-control"  value="#{registerBean.address}" required="true" requiredMessage="Ingresa tu direccion"></p:inputText>
+                                <h:outputLabel for="register-personalid" value="Dirección: *"/>
+                                <p:inputText id="register-address"  class="form-control"  value="#{registerBean.address}" required="true" requiredMessage="Ingresa tu dirección"></p:inputText>
                                 <p:message for="register-address" display="text" />
                             </div>
                             <div style="margin-bottom: 25px" class="form-group">
                                 <h:outputLabel for="register-personalid" value="Celular: *"/>
-                                <p:inputText id="register-phoneNumber"  styleClass="form-control"  value="#{registerBean.phoneNumber}"></p:inputText>
+                                <p:inputText id="register-phoneNumber" type="number" styleClass="form-control"  value="#{registerBean.phoneNumber}"></p:inputText>
                             </div>
                             <div style="margin-bottom: 25px" class="form-group">
-                                <h:outputLabel for="register-personalid" value="Correo Electronico: *"/>
+                                <h:outputLabel for="register-personalid" value="Correo Electrónico: *"/>
                                 <p:inputText id="register-email" type="email" styleClass="form-control" required="true" value="#{registerBean.email}" requiredMessage="Ingresa un email"></p:inputText>
                                 <p:message for="register-email" display="text" />
                             </div>

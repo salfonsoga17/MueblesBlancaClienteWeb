@@ -103,10 +103,12 @@ public class PersonaService {
         if (usuario != null) {
             if (usuario.getPasswordPersona().equals(convertSHA256(password))) {
                 return usuario;
+            } else {
+                throw new Exception("Contraseña Incorrecta");
             }
+        } else {
+            throw new Exception("El Correo no se encuentra registrado");
         }
-        return null;
-
     }
 
     public String convertSHA256(String password) {

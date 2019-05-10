@@ -8,19 +8,19 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import mueblesblanca.service.PersonaService;
 import mueblesblanca.vo.PersonaVO;
+
 /**
- * 
+ *
  * @author Alexis Holguin
  */
 @ManagedBean(name = "loginBean")
 @SessionScoped
-public class LoginBean  implements Serializable{
+public class LoginBean implements Serializable {
 
     private String email;
     private String password;
     private PersonaService userService;
     private PersonaVO user;
-
 
     @PostConstruct
     public void init() {
@@ -35,14 +35,20 @@ public class LoginBean  implements Serializable{
     }
 
     public String doLogin() throws Exception {
-        if (isAuthenticated()) {
-            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", user);
-            return "/index.xhtml?faces-redirect=true";
-        } else {
-            FacesContext.getCurrentInstance().addMessage(null,
-                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Correo o clave incorrecto"));
+        try {
+            if (isAuthenticated()) {
+                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", user);
+                return "/index.xhtml?faces-redirect=true";
+            }
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage("messagesApp",
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", e.getMessage()));
         }
         return "";
+    }
+
+    public void logout() {
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().clear();
     }
 
     public String getEmail() {
@@ -60,7 +66,7 @@ public class LoginBean  implements Serializable{
     public void setPassword(String password) {
         this.password = password;
     }
-    
+
     public PersonaService getUserService() {
         return userService;
     }
