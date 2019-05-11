@@ -28,7 +28,7 @@ public class ProductoDAOMS extends ConexionSQL implements ProductoDAO {
                             + "MaterialProducto, GarantiaMesesProducto, ValorUnitarioProducto, IdImagenProducto, IdModeloProducto, "
                             + "IdCategoriaProducto, FechaCreacionProducto, UsuarioCreacionProducto, FechaModificacionProducto, "
                             + "UsuarioModificacionProducto, EstadoProducto, im.CodigoImagen FROM Producto "
-                            + " JOIN Imagen im ON Producto.IdImagenProducto = im.IdImagen "
+                            + " JOIN Imagen im ON Producto.IdProducto = im.IdProductoImagen "
                             + "WHERE EstadoProducto <> ? ";
 
             System.out.println("QUERY listar " + consulta);
@@ -79,7 +79,7 @@ public class ProductoDAOMS extends ConexionSQL implements ProductoDAO {
                             + "MaterialProducto, GarantiaMesesProducto, ValorUnitarioProducto, IdImagenProducto, IdModeloProducto, "
                             + "IdCategoriaProducto, FechaCreacionProducto, UsuarioCreacionProducto, FechaModificacionProducto, "
                             + "UsuarioModificacionProducto, EstadoProducto, im.CodigoImagen FROM Producto "
-                            + " JOIN Imagen im ON Producto.IdImagenProducto = im.IdImagen "
+                            + " JOIN Imagen im ON Producto.IdProducto = im.IdProductoImagen "
                             + "WHERE IdProducto = ? ";
 
             System.out.println("QUERY consultarPorId " + consulta);
