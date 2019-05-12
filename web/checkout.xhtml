@@ -7,7 +7,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:c="http://java.sun.com/jsp/jstl/core">
 
-<h:head>
+    <h:head>
         <title>Muebles Blanca</title> 
         <!-- for-mobile-apps -->
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -197,28 +197,21 @@
                 <h:form id="formCarritoCompras">
                     <p:dataTable var="item" value="#{carritoBean.articulo}" emptyMessage="No tienes productos">
                         <p:column headerText="Quitar">
-                            <div class="rem">
-                                    <div class="close1"> </div>
-                            </div>
-                            <script>$(document).ready(function(c) {
-                                    $('.close1').on('click', function(c){
-                                            $('.rem1').fadeOut('slow', function(c){
-                                                    $('.rem1').remove();
-                                            });
-                                            });	  
-                                    });
-                            </script>
+                            <h:form> 
+                                <h:commandButton value="Eliminar" class="item_add single-item hvr-outline-out button2" actionListener="#{carritoBean.remove()}" ></h:commandButton>
+                            </h:form> 
+                        </p:column>  
+                        <p:column headerText="Producto" style="text-align: center">
+                            <b><h:outputText value="#{item.producto.nombreProducto}"/></b>
+                            <img src="data:image/png;base64,${item.producto.imagenProducto.imagenFoto}" alt="" width="260" height="220"/>
                         </p:column>
-                        <p:column headerText="Nombre producto">
-                            <h:outputText value="#{item.producto.nombreProducto}" />
+                        <p:column headerText="Precio unitario" style="text-align: center">
+                            <h:outputText value="#{item.producto.valorUnitarioProducto}">
+                                <f:convertNumber currencySymbol='$' groupingUsed='true' maxFractionDigits='0' type='currency' locale='es_CO' />
+                            </h:outputText>
                         </p:column>
-
-                        <p:column headerText="Precio">
-                            <h:outputText value="#{item.producto.valorUnitarioProducto}" />
-                        </p:column>
-
-                        <p:column headerText="Cantidad">
-                            <h:outputText value="#{item.cantidad}" />
+                        <p:column headerText="Cantidad" style="text-align: center">
+                            <h:outputText value="#{item.cantidad}"/>
                         </p:column>
                     </p:dataTable>
                     <!--<div class="table-responsive checkout-right animated wow slideInUp" data-wow-delay=".5s">
@@ -281,7 +274,7 @@
                         <div class="checkout-left-basket animated wow slideInLeft" data-wow-delay=".5s">
                             <h4>Valor total</h4>
                             <ul>
-                                <li><h:outputLabel for="total" value="Total: " /> 
+                                <li><h:outputLabel value="Total: " /> 
                                     <span>
                                         <h:outputText value="#{item.valorTotal}" >
                                             <f:convertNumber currencySymbol='$' groupingUsed='true' maxFractionDigits='0' type='currency' locale='es_CO' />

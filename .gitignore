@@ -39,3 +39,4 @@ build/web/WEB-INF/classes/mueblesblanca/dao/ConexionSQL.class	.mtj.tmp/
 build/web/WEB-INF/menu_1.xhtml	
  nbproject/private/private.xml	# Package Files #
 src/java/mueblesblanca/dao/ConexionSQL.java
+/dist/

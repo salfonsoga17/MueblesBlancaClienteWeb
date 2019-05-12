@@ -265,8 +265,10 @@
                                                     </h:outputText>                                               
                                                     <!--<span class="item_price">$ #{producto.valorUnitarioProducto}</span>-->
                                                 </div>
-                                                <h:commandButton value="añadir al carrito" actionListener="#{carritoBean.AñadirAlCarrito(producto, 1)}"></h:commandButton>
-                                                <a href="#" class="item_add single-item hvr-outline-out button2">Añadir al carrito</a>									
+                                                <h:form> 
+                                                    <h:commandButton class="item_add single-item hvr-outline-out button2" value="Añadir al carrito" actionListener="#{carritoBean.AñadirAlCarrito(producto, 1)}" ></h:commandButton>
+                                                </h:form>                                                 
+                                                <!--<a href="#" class="item_add single-item hvr-outline-out button2" >Añadir al carrito</a>-->									
                                             </div>                         
                                         </div>
                                     </div>                            
