@@ -6,7 +6,8 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:c="http://java.sun.com/jsp/jstl/core">
-    <h:head>
+
+<h:head>
         <title>Muebles Blanca</title> 
         <!-- for-mobile-apps -->
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -34,7 +35,7 @@
         <link href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css' />
         <script src="js/jquery.easing.min.js"></script>
     </h:head>
-<h:body>
+    <h:body>
         <!-- header-bot -->
         <div class="header-bot">
             <div class="container">
@@ -65,7 +66,7 @@
                 </div>
                 <div class="col-md-3 header-right footer-bottom">
                     <ul>
-                        <li><a href="#" class="use1" data-toggle="modal" data-target="#myModal4"><span>Iniciar Sesion</span></a>                        </li>
+                        <li><a href="login.xhtml" class="use1" ><span>Iniciar Sesion</span> <span>Iniciar Sesion</span></a></li>
                         <li><a class="fb" href="https://www.facebook.com/MueblesBlancaCol/"></a></li>
                         <li><a class="insta" href="https://www.instagram.com/mueblesblanca/"></a></li>
                         <li><a></a></li>
@@ -182,56 +183,119 @@
             </div>
         </div>
         <!-- //banner-top -->
+        <!-- banner -->
         <div class="page-head">
             <div class="container">
-                <h3><b>Contáctenos</b></h3>
+                <h3><b>Carrito de compras</b></h3>
             </div>
         </div>
         <!-- //banner -->
-        <!-- //banner -->
-        <!-- contact -->
-	<div class="contact">
-		<div class="container">
-			<div class="contact-grids">
-				<div class="col-md-4 contact-grid text-center animated wow slideInLeft" data-wow-delay=".5s">
-					<div class="contact-grid1">
-						<i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>
-						<h4>Dirección</h4>
-						<p>carrera 68L #37 D 03 sur <span>Bogotá.</span></p>
-					</div>
-				</div>
-				<div class="col-md-4 contact-grid text-center animated wow slideInUp" data-wow-delay=".5s">
-					<div class="contact-grid2">
-						<i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>
-						<h4>Llamanos</h4>
-						<p>300 6009099<span>3136091384</span></p>
-					</div>
-				</div>
-				<div class="col-md-4 contact-grid text-center animated wow slideInRight" data-wow-delay=".5s">
-					<div class="contact-grid3">
-						<i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>
-						<h4>Email</h4>
-						<p><a href="mailto:mueblesblancacol@gmail.com">mueblesblancacol@gmail.com</a></p>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-			<div class="map wow fadeInDown animated" data-wow-delay=".5s">
-				<h3 class="tittle">Nuestra ubicación</h3>				
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.9267496626885!2d-74.14052788618493!3d4.607135596653063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9ec79f364325%3A0xe36ee89b92d3bcba!2sMuebles+Blanca!5e0!3m2!1ses-419!2sco!4v1557599221908!5m2!1ses-419!2sco" frameborder="0" style="border:0"></iframe>
-			</div>
-			<h3 class="tittle">Formulario de Contacto</h3>
-			<form>
-				<div class="contact-form2">
-					<input type="text" value="Nombre" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required=""></input>
-					<input type="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required=""></input>
-					<textarea type="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Mensaje...</textarea>
-                                        <input type="submit" value="Enviar" ></input>
-				</div>
-			</form>
-		</div>
-	</div>	
-        <!-- //contact -->
+        <!-- check out -->
+        <div class="checkout">
+            <div class="container">
+                <h3>Mi carrito de compras</h3>
+                <h:form id="formCarritoCompras">
+                    <p:dataTable var="item" value="#{carritoBean.articulo}" emptyMessage="No tienes productos">
+                        <p:column headerText="Quitar">
+                            <div class="rem">
+                                    <div class="close1"> </div>
+                            </div>
+                            <script>$(document).ready(function(c) {
+                                    $('.close1').on('click', function(c){
+                                            $('.rem1').fadeOut('slow', function(c){
+                                                    $('.rem1').remove();
+                                            });
+                                            });	  
+                                    });
+                            </script>
+                        </p:column>
+                        <p:column headerText="Nombre producto">
+                            <h:outputText value="#{item.producto.nombreProducto}" />
+                        </p:column>
+
+                        <p:column headerText="Precio">
+                            <h:outputText value="#{item.producto.valorUnitarioProducto}" />
+                        </p:column>
+
+                        <p:column headerText="Cantidad">
+                            <h:outputText value="#{item.cantidad}" />
+                        </p:column>
+                    </p:dataTable>
+                    <!--<div class="table-responsive checkout-right animated wow slideInUp" data-wow-delay=".5s">
+                        <table class="timetable_sub">
+                            <thead>
+                                <tr>
+                                    <th>Quitar</th>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Nombre producto</th>
+                                    <th>Precio</th>
+                                </tr>
+                            </thead>
+                            <tr class="rem1">
+                                <td class="invert-closeb">
+                                        <div class="rem">
+                                                <div class="close1"> </div>
+                                        </div>
+                                        <script>$(document).ready(function(c) {
+                                                $('.close1').on('click', function(c){
+                                                        $('.rem1').fadeOut('slow', function(c){
+                                                                $('.rem1').remove();
+                                                        });
+                                                        });	  
+                                                });
+                                   </script>
+                                </td>
+                                <td class="invert-image"><a href="single.html"><img src="images/w4.png" alt=" " class="img-responsive" /></a></td>
+                                <td class="invert">
+                                         <div class="quantity"> 
+                                                <div class="quantity-select">                           
+                                                        <div class="entry value-minus">&nbsp;</div>
+                                                        <div class="entry value"><span>1</span></div>
+                                                        <div class="entry value-plus active">&nbsp;</div>
+                                                </div>
+                                        </div>
+                                </td>
+                                <td class="invert">Hand Bag</td>
+                                <td class="invert">$45.99</td>  
+                            </tr>
+                            quantity
+                            <script>
+                            $('.value-plus').on('click', function(){
+                                    var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
+                                    divUpd.text(newVal);
+                            });
+
+                            $('.value-minus').on('click', function(){
+                                    var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
+                                    if(newVal>=1) divUpd.text(newVal);
+                            });
+                            </script>
+                            quantity
+                        </table>
+                    </div>-->
+                    <div class="checkout-left">	
+                        <div class="checkout-right-basket animated wow slideInRight" data-wow-delay=".5s">
+                                <a href="index.xhtml"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Seguir comprando</a>
+                        </div>
+                        <div class="checkout-left-basket animated wow slideInLeft" data-wow-delay=".5s">
+                            <h4>Valor total</h4>
+                            <ul>
+                                <li><h:outputLabel for="total" value="Total: " /> 
+                                    <span>
+                                        <h:outputText value="#{item.valorTotal}" >
+                                            <f:convertNumber currencySymbol='$' groupingUsed='true' maxFractionDigits='0' type='currency' locale='es_CO' />
+                                        </h:outputText>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>	
+        <!-- //check out -->
         <!-- //product-nav -->
         <div class="coupons">
             <div class="container">
@@ -271,15 +335,6 @@
                        redes sociales, local físico o simplemente vende en tu círculo de familiares y amigos.</p>
                 </div>
                 <div class="col-md-7 footer-right">
-                    <!--<div class="col-sm-6 newsleft">
-                        <h3>SIGN UP FOR NEWSLETTER !</h3>
-                    </div>
-                    <div class="col-sm-6 newsright">
-                        <form>
-                            <input type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required=""/>
-                            <input type="submit" value="Submit"/>
-                        </form>
-                    </div>--> 
                     <div class="clearfix"></div>
                     <div class="sign-grds">
                         <div class="col-md-4 sign-gd">
@@ -301,21 +356,7 @@
                                 <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Correo : <a href="mailto:mueblesblancacol@gmail.com">mueblesblancacol@gmail.com</a></li>
                                 <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>Teléfono : 3136091384</li>
                             </ul>
-                        </div>
-                        <!--<div class="col-md-4 sign-gd flickr-post">
-                            <h4>Flickr Posts</h4>
-                            <ul>
-                                <li><a href="single.html"><img src="images/b15.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b16.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b17.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b18.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b15.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b16.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b17.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b18.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b15.jpg" alt=" " class="img-responsive" /></a></li>
-                            </ul>
-                        </div>-->
+                        </div>                        
                         <div class="clearfix"></div>
                     </div>
                 </div>
@@ -323,67 +364,66 @@
             </div>
         </div>
         <!-- //footer -->
-       <!-- login -->
+        <!-- login -->
         <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                        <div class="modal-content modal-info">
-                                <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-                                </div>
-                                <div class="modal-body modal-spa">
-                                        <div class="login-grids">
-                                                <div class="login">
-                                                        <div class="login-bottom">
-                                                                <h3>Sign up for free</h3>
-                                                                <form>
-                                                                        <div class="sign-up">
-                                                                                <h4>Email :</h4>
-                                                                                <input type="text" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required=""></input>	
-                                                                        </div>
-                                                                        <div class="sign-up">
-                                                                                <h4>Password :</h4>
-                                                                                <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required=""></input>
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal-info">
+                    <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+                    </div>
+                    <div class="modal-body modal-spa">
+                        <div class="login-grids">
+                                <div class="login">
+                                    <div class="login-bottom">
+                                        <h3>Sign up for free</h3>
+                                        <form>
+                                            <div class="sign-up">
+                                                    <h4>Email :</h4>
+                                                    <input type="text" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required=""></input>	
+                                            </div>
+                                            <div class="sign-up">
+                                                    <h4>Password :</h4>
+                                                    <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required=""></input>
 
-                                                                        </div>
-                                                                        <div class="sign-up">
-                                                                                <h4>Re-type Password :</h4>
-                                                                                <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required=""></input>
+                                            </div>
+                                            <div class="sign-up">
+                                                    <h4>Re-type Password :</h4>
+                                                    <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required=""></input>
 
-                                                                        </div>
-                                                                        <div class="sign-up">
-                                                                                <input type="submit" value="REGISTER NOW" ></input>
-                                                                        </div>
-
-                                                                </form>
-                                                        </div>
-                                                        <div class="login-right">
-                                                                <h3>Sign in with your account</h3>
-                                                                <form>
-                                                                        <div class="sign-in">
-                                                                                <h4>Email :</h4>
-                                                                                <input type="text" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required=""></input>
-                                                                        </div>
-                                                                        <div class="sign-in">
-                                                                                <h4>Password :</h4>
-                                                                                <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required=""></input>
-                                                                                <a href="#">Forgot password?</a>
-                                                                        </div>
-                                                                        <div class="single-bottom">
-                                                                                <input type="checkbox"  id="brand" value=""></input>
-                                                                                <label for="brand"><span></span>Remember Me.</label>
-                                                                        </div>
-                                                                        <div class="sign-in">
-                                                                                <input type="submit" value="SIGNIN" ></input>
-                                                                        </div>
-                                                                </form>
-                                                        </div>
-                                                        <div class="clearfix"></div>
+                                            </div>
+                                            <div class="sign-up">
+                                                    <input type="submit" value="REGISTER NOW" ></input>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="login-right">
+                                        <h3>Sign in with your account</h3>
+                                            <form>
+                                                <div class="sign-in">
+                                                        <h4>Email :</h4>
+                                                        <input type="text" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required=""></input>	
                                                 </div>
-                                                <p>By logging in you agree to our <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a></p>
-                                        </div>
-                                </div>
+                                                <div class="sign-in">
+                                                        <h4>Password :</h4>
+                                                        <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required=""></input>
+                                                        <a href="#">Forgot password?</a>
+                                                </div>
+                                                <div class="single-bottom">
+                                                        <input type="checkbox"  id="brand" value=""></input>
+                                                        <label for="brand"><span></span>Remember Me.</label>
+                                                </div>
+                                                <div class="sign-in">
+                                                        <input type="submit" value="SIGNIN" ></input>
+                                                </div>
+                                            </form>
+                                    </div>
+                                    <div class="clearfix"></div>
+                            </div>
+                                <p>By logging in you agree to our <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a></p>
                         </div>
+                    </div>
                 </div>
+            </div>
         </div>
         <!-- //login -->
     </h:body>

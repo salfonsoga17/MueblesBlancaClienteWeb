@@ -171,7 +171,7 @@
                 </div>
                 <div class="top_nav_right">
                     <div class="cart box_1">
-                        <a href="checkout.html">
+                        <a href="checkout.xhtml">
                             <h3> <div class="total">
                                     <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
                                     <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> productos)</div>
@@ -265,6 +265,7 @@
                                                     </h:outputText>                                               
                                                     <!--<span class="item_price">$ #{producto.valorUnitarioProducto}</span>-->
                                                 </div>
+                                                <h:commandButton value="añadir al carrito" actionListener="#{carritoBean.AñadirAlCarrito(producto, 1)}"></h:commandButton>
                                                 <a href="#" class="item_add single-item hvr-outline-out button2">Añadir al carrito</a>									
                                             </div>                         
                                         </div>
@@ -278,7 +279,6 @@
             </div>
         </div>
         <!-- //product-nav -->
-
         <div class="coupons">
             <div class="container">
                 <div class="coupons-grids text-center">
