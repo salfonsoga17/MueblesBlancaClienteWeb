@@ -39,6 +39,14 @@
         <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'/>
         <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'/>
         <script src="js/jquery.easing.min.js"></script>
+        <style>
+            body .ui-button{
+                background-color: #FDA30E!important;
+            }
+            body .ui-state-hover{
+                background-color: #FDA30E!important;
+            }
+        </style>
     </head>
     <h:body>  
         <!-- header-bot -->
@@ -173,17 +181,19 @@
                         </div>
                     </nav>	
                 </div>
-                <div class="top_nav_right">
-                    <div class="cart box_1">
-                        <a href="checkout.xhtml">
-                            <h3> <div class="total">
-                                    <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
-                                    <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> productos)</div>
-                            </h3>
-                        </a>
-                        <p><a href="javascript:;" class="simpleCart_empty">Vaciar Carrito</a></p>
-                    </div>	
-                </div>
+                    <div class="top_nav_right">
+                        <div class="cart box_1">
+                            <a href="checkout.xhtml">
+                                <h3> <div class="total">
+                                        <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
+                                        <span class="simpleCart_totala"><h:outputText value="$ #{CarritoBean.total}" /></span> (<span class="simpleCart_quantit"><h:outputText value="#{CarritoBean.items.size()}"/></span> productos)</div>
+                                </h3>
+                            </a>
+                            <p>
+                                <p:commandLink action="#{CarritoBean.vaciarCarrito}" styleClass="simpleCart_empty" value="Vaciar Carrito" ajax="false"/>
+                            </p>
+                        </div>	
+                    </div>
                 <div class="clearfix"></div>
             </div>
         </div>
@@ -280,7 +290,12 @@
                             <div class="clearfix"> </div>-->
                         </div>
                         <div class="occasion-cart">
-                            <a href="#" class="item_add hvr-outline-out button2">Añadir al carrito</a>
+
+                            <f:view>
+                                <h:form>
+                                    <p:commandLink styleClass="item_add hvr-outline-out button2" value="Añadir al carrito" action="#{CarritoBean.agregarProducto(singleBean.productoVO, 1)}" ajax="false" ></p:commandLink>
+                                </h:form>
+                            </f:view>
                         </div>
 
                     </div>

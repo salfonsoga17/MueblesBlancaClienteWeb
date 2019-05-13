@@ -182,7 +182,7 @@ label{
 
 /* pop-up text */
 .footer-bottom a span {
-    color: #fff;
+    color: #fff!important;
     position: absolute;
     bottom: 0;
     width: 19%;
@@ -817,7 +817,7 @@ position:relative;
   backface-visibility: hidden;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
-  background: #FDA30E;
+  background: #FDA30E!important;
 }
 .hvr-outline-out:before {
   content: '';
@@ -2323,7 +2323,7 @@ border-bottom: 1px solid #e5e3db;
 
 label.checkbox {
 	width: 28%;
-	floaT: left;
+	float: left;
 }
 /*** normal state ***/
 .radio i {
@@ -2724,6 +2724,19 @@ td.invert-image a img {
 	position:relative;
 }
 .close1,.close2,.close3,.close4 {
+    background: url('../images/close_1.png') no-repeat 0px 0px;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    right: 42px;
+    top: -13px;
+    -webkit-transition: color 0.2s ease-in-out;
+    -moz-transition: color 0.2s ease-in-out;
+    -o-transition: color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out;
+}
+.close1 {
     background: url('../images/close_1.png') no-repeat 0px 0px;
     cursor: pointer;
     width: 28px;
