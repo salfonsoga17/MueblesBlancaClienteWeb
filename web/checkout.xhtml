@@ -1,0 +1,346 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+
+        <title>Smart Shop a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Check Out :: w3layouts</title>
+        <!-- for-mobile-apps -->
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="Smart Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+              Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+            function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <!-- //for-mobile-apps -->
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+        <!-- js -->
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+        <!-- //js -->
+        <!-- cart -->
+        <script src="js/simpleCart.min.js"></script>
+        <!-- cart -->
+        <!-- for bootstrap working -->
+        <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+        <!-- //for bootstrap working -->
+        <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'/>
+        <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'/>
+        <script src="js/jquery.easing.min.js"></script>
+        <style>td.invert-image a img {
+                width: 210px;
+                margin: 0 auto;
+            }
+            body .ui-button {
+                background-color: #FFF;
+            }
+            .value-minus, .value-plus {
+                height: 40px;
+                line-height: 24px;
+                width: 40px;
+                margin-right: 3px;
+                display: inline-block;
+                cursor: pointer;
+                position: relative;
+                font-size: 18px;
+                color: #fff;
+                text-align: center;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                border: 1px solid #b2b2b2!important;
+                vertical-align: bottom;
+            }
+            .quantity-select .entry.value-minus:hover, .quantity-select .entry.value-plus:hover {
+                background: #E5E5E5!important;
+            }
+            body .ui-button.ui-state-focus{
+                background-color: #fff;
+            }</style>
+    </h:head>
+    <h:body>
+        <div class="header-bot">
+            <div class="container">
+                <div class="col-md-3 header-left">
+                    <h1><a href="index.xhtml"><img src="resources/imagenes/logo.jpg" alt=""/></a></h1>                    
+                </div>
+                <div class="col-md-6 header-middle">
+                    <form>
+                        <div class="search">
+                            <input type="search" value="Buscar" onfocus="this.value = '';" 
+                                   onblur="if (this.value === '') {
+                                               this.value = 'Buscar';
+                                           }" required=""/>
+                        </div>
+                        <div class="section_room">
+                            <select id="country" onchange="change_country(this.value)" class="frm-field required">
+                                <option value="null">Todas las Categorias</option>
+                                <option value="null">Sofas</option>     
+                                <option value="AX">Comedores</option>
+                                <option value="AX">Salas</option>
+                                <option value="AX">Armarios</option>
+                            </select>
+                        </div>
+                        <div class="sear-sub">
+                            <input type="submit" value=" "/>
+                        </div>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+                <div class="col-md-3 header-right footer-bottom">
+                    <ul>
+                        <li><a href="login.xhtml" class="use1" ><span>Iniciar Sesion</span> </a></li>
+                        <li><a class="fb" href="https://www.facebook.com/MueblesBlancaCol/"></a></li>
+                        <li><a class="insta" href="https://www.instagram.com/mueblesblanca/"></a></li>
+                        <li><a></a></li>
+                        <li><a></a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- //header-bot -->
+        <!-- banner -->
+        <div class="ban-top">
+            <div class="container">    
+                <div class="top_nav_left">
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav menu__list">
+                                    <li class="active menu__item menu__item--current"><a class="menu__link" href="index.xhtml">Home <span class="sr-only">(current)</span></a></li>
+                                    <li class="dropdown menu__item">
+                                        <a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Salas<span class="caret"></span></a>
+                                        <ul class="dropdown-menu multi-column columns-3">
+                                            <div class="row">
+                                                <div class="col-sm-6 multi-gd-img1 multi-gd-text ">
+                                                    <a href="mens.html"><img src="images/woo1.jpg" alt=" "/></a>
+                                                </div>
+                                                <div class="col-sm-3 multi-gd-img">
+                                                    <ul class="multi-column-dropdown">
+                                                        <li><a href="mens.html">Clothing</a></li>
+                                                        <li><a href="mens.html">Wallets</a></li>
+                                                        <li><a href="mens.html">Footwear</a></li>
+                                                        <li><a href="mens.html">Watches</a></li>
+                                                        <li><a href="mens.html">Accessories</a></li>
+                                                        <li><a href="mens.html">Bags</a></li>
+                                                        <li><a href="mens.html">CapsHats</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3 multi-gd-img">
+                                                    <ul class="multi-column-dropdown">
+                                                        <li><a href="mens.html">Jewellery</a></li>
+                                                        <li><a href="mens.html">Sunglasses</a></li>
+                                                        <li><a href="mens.html">Perfumes</a></li>
+                                                        <li><a href="mens.html">Beauty</a></li>
+                                                        <li><a href="mens.html">Shirts</a></li>
+                                                        <li><a href="mens.html">Sunglasses</a></li>
+                                                        <li><a href="mens.html">Swimwear</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown menu__item">
+                                        <a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Comedores <span class="caret"></span></a>
+                                        <ul class="dropdown-menu multi-column columns-3">
+                                            <div class="row">
+                                                <div class="col-sm-3 multi-gd-img">
+                                                    <ul class="multi-column-dropdown">
+                                                        <li><a href="womens.html">Clothing</a></li>
+                                                        <li><a href="womens.html">Wallets</a></li>
+                                                        <li><a href="womens.html">Footwear</a></li>
+                                                        <li><a href="womens.html">Watches</a></li>
+                                                        <li><a href="womens.html">Accessories</a></li>
+                                                        <li><a href="womens.html">Bags</a></li>
+                                                        <li><a href="womens.html">CapHats</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3 multi-gd-img">
+                                                    <ul class="multi-column-dropdown">
+                                                        <li><a href="womens.html">Jewellery</a></li>
+                                                        <li><a href="womens.html">Sunglasses</a></li>
+                                                        <li><a href="womens.html">Perfumes</a></li>
+                                                        <li><a href="womens.html">Beauty</a></li>
+                                                        <li><a href="womens.html">Shirts</a></li>
+                                                        <li><a href="womens.html">Sunglasses</a></li>
+                                                        <li><a href="womens.html">Swimwear</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-6 multi-gd-img multi-gd-text ">
+                                                    <a href="womens.html"><img src="images/woo.jpg" alt=" "/></a>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </ul>
+                                    </li>
+                                    <li class=" menu__item"><a class="menu__link" href="electronics.html">Sillas</a></li>
+                                    <li class=" menu__item"><a class="menu__link" href="codes.html">Sofas</a></li>
+                                    <li class=" menu__item"><a class="menu__link" href="contact.html">Salas</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>	
+                </div>
+                <h:form>
+                    <div class="top_nav_right">
+                        <div class="cart box_1">
+                            <a href="checkout.xhtml">
+                                <h3> <div class="total">
+                                        <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
+                                        <span class="simpleCart_totala"><h:outputText value="$ #{CarritoBean.total}" /></span> (<span class="simpleCart_quantit"><h:outputText value="#{CarritoBean.items.size()}"/></span> productos)</div>
+                                </h3>
+                            </a>
+                            <p>
+                                <p:commandLink action="#{CarritoBean.vaciarCarrito}" styleClass="simpleCart_empty" value="Vaciar Carrito" ajax="true" process="@this"/>
+                            </p>
+                        </div>	
+                    </div>
+                </h:form>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- //banner-top -->
+        <!-- banner -->
+        <div class="page-head">
+            <div class="container">
+                <h3>Check Out</h3>
+            </div>
+        </div>
+        <!-- //banner -->
+        <!-- check out -->
+
+        <div class="checkout">
+            <div class="container">
+                <h3>Mi carrito de Compras</h3>
+                <div class="table-responsive checkout-right animated wow slideInUp" data-wow-delay=".5s">
+                    <table class="timetable_sub">
+                        <thead>
+                            <tr>
+                                <th>Remover</th>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Nombre de Prodcuto</th>
+                                <th>Precio</th>
+                            </tr>
+                        </thead>
+                        <!-- Inicio producto-->
+
+                        <h:form id="form">
+                            <p:repeat value="#{CarritoBean.items}" var="item" >
+
+                                <tr class="rem1" >
+                                    <td class="invert-closeb">
+                                        <div class="rem">
+                                            <p:commandButton action="#{CarritoBean.borrarItem(item)}"  styleClass="close1" value="" ajax="false"></p:commandButton>
+                                        </div>
+                                        <script>
+                                            $(document).ready(function (c) {
+                                                $('.close1').on('click', function (c) {
+                                                    $('.rem1').fadeOut('slow', function (c) {
+                                                        $('.rem1'#{item.id}).remove();
+                                                    });
+                                                });
+                                            });
+                                        </script>
+                                    </td>
+                                    <td class="invert-image"><a href="single.xhtml?idProducto=${item.producto.idProducto}"><img src="data:image/png;base64,#{item.producto.imagenProducto.imagenFoto}" alt=" " class="img-responsive"/></a></td>
+                                    <td class="invert">
+                                        <div class="quantity"> 
+                                            <div class="quantity-select">
+                                                <p:commandLink  class="entry value-minus" value="&nbsp;" action="#{CarritoBean.borrarProducto(item.producto)}" ajax="false"/> 
+                                                <div class="entry value"><span><h:outputText id="cantidad" value="#{item.cantidad}" /></span></div>
+                                                <p:commandButton styleClass="entry value-plus active" value="&nbsp;" action="#{CarritoBean.agregarProducto(item.producto, 1)}"  ajax="false"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="invert">#{item.producto.nombreProducto}</td>
+                                    <td class="invert">$ <h:outputText id="total" value="#{item.valorTotal}" ></h:outputText></td>
+                                </tr>
+
+                                <!--fin producto -->
+                            </p:repeat>
+                        </h:form>
+
+                        <!--quantity
+                        <script>
+                            $('.value-plus').on('click', function () {
+                                var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) + 1;
+                                divUpd.text(newVal);
+                            });
+
+                            $('.value-minus').on('click', function () {
+                                var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) - 1;
+                                if (newVal >= 1)
+                                    divUpd.text(newVal);
+                            });
+                        </script>
+                        -->
+                        <!--quantity-->
+                    </table>
+                </div>
+                <div class="checkout-left">	
+
+                    <div class="checkout-right-basket animated wow slideInRight" data-wow-delay=".5s">
+                        <a href="mens.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Back To Shopping</a>
+                    </div>
+                    <div class="checkout-left-basket animated wow slideInLeft" data-wow-delay=".5s">
+                        <h4>Shopping basket</h4>
+                        <ul>
+                            <p:repeat value="#{CarritoBean.items}" var="item">
+                                <li> #{item.producto.nombreProducto} <i>-</i> <span>$ #{item.valorTotal} </span></li>
+                            </p:repeat>
+                            <li>Total <i>-</i> <span>$ <h:outputText id="total" value="#{CarritoBean.total}" /></span></li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>	
+
+
+        <!-- //check out -->
+        <!-- //product-nav -->
+        <div class="coupons">
+            <div class="container">
+                <div class="coupons-grids text-center">
+                    <div class="col-md-3 coupons-gd">
+                        <h3>Buy your product in a simple way</h3>
+                    </div>
+                    <div class="col-md-3 coupons-gd">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        <h4>LOGIN TO YOUR ACCOUNT</h4>
+                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor
+                            sit amet, consectetur.</p>
+                    </div>
+                    <div class="col-md-3 coupons-gd">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        <h4>SELECT YOUR ITEM</h4>
+                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor
+                            sit amet, consectetur.</p>
+                    </div>
+                    <div class="col-md-3 coupons-gd">
+                        <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
+                        <h4>MAKE PAYMENT</h4>
+                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor
+                            sit amet, consectetur.</p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+
