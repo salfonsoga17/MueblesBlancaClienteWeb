@@ -13,27 +13,56 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
             <meta name="apple-mobile-web-app-capable" content="yes" />
             <link href="css/lib/bootstrap.min.css" rel="stylesheet"/>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+            <style type="text/css">
+                .login-form {
+                    margin-left: auto;
+                    margin-right: auto;
+                    background: url(images/Fondo-login.jpg);
+                }
+                .login-form form {
+                    margin-bottom: 15px;
+                    background: #f7f7f7;
+                    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+                    padding: 30px;
+                }
+                .login-form h2 {
+                    margin: 0 0 15px;
+                }
+                .form-control, .btn {
+                    min-height: 38px;
+                    border-radius: 2px;
+                }
+                .btn {        
+                    font-size: 15px;
+                    font-weight: bold;
+                }
+            </style>
         </f:facet>
         <title>Login | Usuario</title>
     </h:head>
 
-    <h:body styleClass="login-body">
+    <h:body styleClass="login-body login-form">
         <div id="login">
             <p:growl id="growl" for="messagesApp" showDetail="true"></p:growl>
-            <h3 class="text-center text-white pt-5">Login form</h3>
+            <h3 class="text-center text-white pt-5"><a href="index.xhtml"><img src="resources/imagenes/logo.jpg" alt=""/></a></h3>
+            <div></div>
             <div class="container">
                 <div id="login-row" class="row justify-content-center align-items-center">
                     <div id="login-column" class="col-md-6">
+                        <p></p>
                         <div id="login-box" class="col-md-12">
                             <h:form id="login-form" class="form">
-                                <h3 class="text-center text-info">Login</h3>
+                                <h3 class="text-center text-info">Iniciar Sesión</h3>
                                 <div class="form-group">
-                                    <label for="username" class="text-info">Correo:</label><br/>
+                                    <h4><label for="username" class="text-info">Correo:</label><br/></h4>
                                     <p:inputText placeholder="Correo" id="email" value="#{loginBean.email}" styleClass="form-control" required="true" requiredMessage="ingresa tu correo"/>
                                     <p:message for="email" display="text" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="password" class="text-info">Contraseña:</label><br/>
+                                    <h4><label for="password" class="text-info">Contraseña:</label><br/></h4>
                                     <p:password id="password" placeholder="Contraseña" feedback="false" value="#{loginBean.password}" required="true" styleClass="form-control" requiredMessage="Ingresa tu contraseña" />
                                     <p:message for="password" display="text" />
                                 </div>
@@ -47,7 +76,11 @@
                                     </p:commandButton>
                                 </div>
                                 <div id="register-link" class="text-right">
-                                    <a href="register.xhtml" class="text-info">Registrate aqui</a>
+                                    <h3>
+                                        <p class="text-center small">
+                                            ¿No tienes una cuenta? <a href="register.xhtml" class="text-info">Registrate aqui</a>.
+                                        </p>
+                                    </h3>
                                 </div>
                             </h:form>
                         </div>

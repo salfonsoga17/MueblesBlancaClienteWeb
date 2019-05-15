@@ -176,9 +176,7 @@
                                             </div>
                                         </ul>
                                     </li>
-                                    <li class=" menu__item"><a class="menu__link" href="electronics.html">Sillas</a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="codes.html">Sofas</a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="contact.html">Salas</a></li>
+                                    <li class=" menu__item"><a class="menu__link" href="contact.xhtml">Contactenos</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -194,7 +192,7 @@
                                 </h3>
                             </a>
                             <p>
-                                <p:commandLink action="#{CarritoBean.vaciarCarrito}" styleClass="simpleCart_empty" value="Vaciar Carrito" ajax="false"/>
+                               <p:commandLink action="#{CarritoBean.vaciarCarrito}" styleClass="simpleCart_empty" value="Vaciar Carrito" ajax="false"/>
                             </p>
                         </div>	
                     </div>
@@ -206,7 +204,7 @@
         <!-- banner -->
         <div class="page-head">
             <div class="container">
-                <h3><b>Información del Mueble</b></h3>
+                <h3><b>Información del Producto</b></h3>
             </div>
         </div>
         <!-- //banner -->
@@ -249,7 +247,12 @@
                     </div>
                     <div class="col-md-6 single-right-left simpleCart_shelfItem animated wow slideInRight animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInRight;">
                         <h3><b>#{singleBean.productoVO.nombreProducto}</b></h3>
-                        <p><span class="item_price">$ #{singleBean.productoVO.valorUnitarioProducto}</span></p>
+                        <p>
+                            <h:outputText class="item_price" value='#{singleBean.productoVO.valorUnitarioProducto}'>
+                            <f:convertNumber currencySymbol='$' groupingUsed='true' maxFractionDigits='0' type='currency' locale='es_CO' />
+                            </h:outputText>
+                        </p> 
+                        <!--<p><span class="item_price">$ #{singleBean.productoVO.valorUnitarioProducto}</span></p>-->
                         <div class="rating1">
                             <span class="starRating">
                                 <input id="rating5" type="radio" name="rating" value="5"/>
@@ -268,13 +271,14 @@
                             <div class="color-quality-right">
                                 <p></p>
                                 <h5>Garantia del producto: <b>#{singleBean.productoVO.garantiaMesesProducto} Meses</b></h5>
-                                <h5>Cantidad :</h5>
+                                <h5>Material: #{singleBean.productoVO.materialProducto} </h5>
+                                <!--<h5>Cantidad :</h5>
                                 <select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
                                     <option value="null">1</option>
                                     <option value="null">2</option> 
                                     <option value="null">3</option>					
                                     <option value="null">4</option>								
-                                </select>
+                                </select>-->
                             </div>
                         </div>
                         <div class="occasional">
@@ -291,7 +295,6 @@
                             <div class="clearfix"> </div>-->
                         </div>
                         <div class="occasion-cart">
-
                             <f:view>
                                 <h:form>
                                     <p:commandLink styleClass="item_add hvr-outline-out button2" value="Añadir al carrito" action="#{CarritoBean.agregarProducto(singleBean.productoVO, 1)}" ajax="false" ></p:commandLink>
@@ -368,20 +371,20 @@
                     <div class="col-md-3 coupons-gd">
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                         <h4>INGRESE A SU CUENTA</h4>
-                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor
-                            sit amet, consectetur.</p>
+                        <p>Regístrese e ingrese a nuestro sistema para convertirse en 
+                            uno de nuestros clientes y realizar su compra.</p>
                     </div>
                     <div class="col-md-3 coupons-gd">
                         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                         <h4>SELECCIONE SU PRODUCTO</h4>
-                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor
-                            sit amet, consectetur.</p>
+                        <p>Seleccione los producto de su interés en nuestro catálogo
+                            y agregarlos al carrito de compras.</p>
                     </div>
                     <div class="col-md-3 coupons-gd">
                         <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
-                        <h4>REALICE SU PAGO</h4>
-                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor
-                            sit amet, consectetur.</p>
+                        <h4>GENERE SU ORDEN</h4>
+                        <p>Genere sus ordenes de compra para posteriormente realizar 
+                            el pago en nuestra punto de venta.</p>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -392,8 +395,10 @@
             <div class="container">
                 <div class="col-md-4 footer-left">
                     <h2><a href="index.xhtml"><img src="resources/imagenes/logo.jpg" alt=" " /></a></h2>
-                    <p>Somos fabricadores de muebles para el hogar (salas, comedores y alcobas) 
-                        creamos e innovamos a menudo, síguenos.</p>
+                    <p>Somos fabricantes elaboramos tu diseño sobre medidas y también refaccionamos.
+                       Te brindamos la posibilidad de tener tu propia mueblería. Vende a través de 
+                       redes sociales, local físico o simplemente vende en tu círculo de familiares 
+                       y amigos.</p>
                 </div>
                 <div class="col-md-7 footer-right">
                     <!--<div class="col-sm-6 newsleft">
