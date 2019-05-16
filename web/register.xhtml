@@ -15,16 +15,43 @@ and open the template in the editor.
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="css/lib/bootstrap.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+        <style type="text/css">
+            .Register-form {
+                margin-left: auto;
+                margin-right: auto;
+                background: url(images/Fondo-login.jpg);
+            }
+            .Register-form form {
+                margin-bottom: 15px;
+                background: #f7f7f7;
+                box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+                padding: 30px;
+            }
+            .Register-form h2 {
+                margin: 0 0 15px;
+            }
+            .form-control, .btn {
+                min-height: 38px;
+                border-radius: 2px;
+            }
+            .btn {        
+                font-size: 15px;
+                font-weight: bold;
+            }
+        </style>
     </h:head>
-    <h:body>
-        <div class="container">
-            <div id="loginbox" style="margin-top:50px;max-width: 50%; min-width: 300px;" class="container" >                    
+    <h:body styleClass="Register-form ">
+        <div class="container ">
+            <div id="loginbox" style="margin-top:20px;max-width: 50%; min-width: 300px;" class="container" >                    
                 <p:growl for="messagesRegister" autoUpdate="true" showDetail="true"></p:growl>
                 <div class="panel-heading">
-                    <center><div class="panel-title">Panel de registro</div></center>                        
+                    <h1 class="text-center text-info"><b>Panel de registro</b></h1>                      
                 </div>     
-                <div style="padding-top:30px" class="panel-body" >
-                    <div class="card" style="padding:  12px; margin: 15px;">
+                <div style="padding-top:10px" class="panel-body">
+                    <div class="card-body">
                         <h:form id="registerformUser" styleClass="form-horizontal">
                             <div style="margin-bottom: 25px" class="form-group">
                                 <h:outputLabel for="register-personalid" value="Numero de identificación: *"/>
@@ -64,7 +91,6 @@ and open the template in the editor.
                                 <p:inputText id="register-email" type="email" styleClass="form-control" required="true" value="#{registerBean.email}" requiredMessage="Ingresa un email"></p:inputText>
                                 <p:message for="register-email" display="text" />
                             </div>
-
                             <div style="margin-bottom: 25px" class="form-group">
                                 <h:outputLabel for="register-personalid" value="Contraseña: *"/>
                                 <p:password id="register-password" styleClass="form-control" required="true" value="#{registerBean.password}" feedback="true"
@@ -75,14 +101,16 @@ and open the template in the editor.
                                 <!-- Button -->
                                 <center>
                                     <div class="col-sm-12 controls">
-                                        <p:commandButton id="btn-login" styleClass="btn btn-primary" value="Registrarme" action="#{registerBean.insertar}" update="registerformUser" ></p:commandButton>
+                                        <p:commandButton id="btn-login" styleClass="btn btn-primary" value="Registrarse" action="#{registerBean.insertar}" update="registerformUser" ></p:commandButton>
                                     </div>
                                 </center>
                                 <br/>
                                 <br/>
-                                <br/>
-                                <br/>
-                                <center><a href="login.xhtml">¿Ya tienes cuenta?. ¡Logueate :D!</a></center>
+                                <h3>
+                                    <p class="text-center small">
+                                        ¿Ya tienes cuenta?. <a href="login.xhtml" class="text-info">Inicia sesión</a>.
+                                    </p>
+                                </h3>
                             </div>
                         </h:form>
                     </div>

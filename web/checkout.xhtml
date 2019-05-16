@@ -265,7 +265,10 @@
                                         </div>
                                     </td>
                                     <td class="invert">#{item.producto.nombreProducto}</td>
-                                    <td class="invert">$ <h:outputText id="total" value="#{item.valorTotal}" ></h:outputText></td>
+                                    <td class="invert"><h:outputText id="total" value="#{item.valorTotal}" >
+                                            <f:convertNumber currencySymbol='$ ' groupingUsed='true' maxFractionDigits='0' type='currency' locale='es_CO' />
+                                        </h:outputText>
+                                    </td>
                                 </tr>
 
                                 <!--fin producto -->
@@ -295,13 +298,19 @@
                         <a href="index.xhtml"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Seguir comprando</a>
                     </div>
                     <div class="checkout-left-basket animated wow slideInLeft" data-wow-delay=".5s">
-                        <h4>Shopping basket</h4>
+                        <h4>CESTA DE LA COMPRA</h4>
                         <ul>
                             <p:repeat value="#{CarritoBean.items}" var="item">
-                                <li> #{item.producto.nombreProducto} <i>-</i> <span>$ #{item.valorTotal} </span></li>
+                                <li> #{item.producto.nombreProducto} <i>-</i> <span><h:outputText id="ValorItemCesta" value="#{item.valorTotal}">
+                                                                                      <f:convertNumber currencySymbol='$ ' groupingUsed='true' maxFractionDigits='0' type='currency' locale='es_CO' />
+                                                                                  </h:outputText>
+                                                                              </span></li>
                             </p:repeat>
-                            <li>Total <i>-</i> <span>$ <h:outputText id="total" value="#{CarritoBean.total}" /></span></li>
-                        </ul>
+                            <li>Total <i>-</i> <span><h:outputText id="total" value="#{CarritoBean.total}" >
+                                                       <f:convertNumber currencySymbol='$ ' groupingUsed='true' maxFractionDigits='0' type='currency' locale='es_CO' />
+                                                   </h:outputText>
+                                               </span></li>
+                            </ul>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
