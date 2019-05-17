@@ -6,7 +6,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:c="http://java.sun.com/jsp/jstl/core">
 
-    <head>
+    <h:head>
         <f:metadata>
             <f:viewParam name="idProducto" value="#{singleBean.idProducto}" />
             <f:event type="preRenderView" listener="#{singleBean.preRenderView()}" />
@@ -47,7 +47,7 @@
                 background-color: #FDA30E!important;
             }
         </style>
-    </head>
+    </h:head>
     <h:body>       
         <!-- header-bot -->
         <div class="header-bot">
@@ -225,6 +225,17 @@
                                             controlNav: "thumbnails"
                                         });
                                     });
+                                    //Obtener valor y texto seleccionado del select de cantidad
+                                    function ShowSelected()
+                                    {
+                                        /* Para obtener el valor */
+                                        var cod = document.getElementById("country1").value;
+                                        alert(cod);
+                                        /* Para obtener el texto */
+                                        var combo = document.getElementById("country1");
+                                        var selected = combo.options[combo.selectedIndex].text;
+                                        alert(selected);
+                                    }
                                 </script>
                                 <!-- //FlexSlider-->
                                 <ul class="slides">
@@ -271,14 +282,14 @@
                             <div class="color-quality-right">
                                 <p></p>
                                 <h5>Garantia del producto: <b>#{singleBean.productoVO.garantiaMesesProducto} Meses</b></h5>
-                                <h5>Material: #{singleBean.productoVO.materialProducto} </h5>
-                                <!--<h5>Cantidad :</h5>
-                                <select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
-                                    <option value="null">1</option>
-                                    <option value="null">2</option> 
-                                    <option value="null">3</option>					
-                                    <option value="null">4</option>								
-                                </select>-->
+                                <h5>Cantidad :</h5>
+                                <select id="country1" onchange="ShowSelected()" class="frm-field required sect">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option> 
+                                    <option value="3">3</option>					
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>								
+                                </select>
                             </div>
                         </div>
                         <div class="occasional">
@@ -301,7 +312,6 @@
                                 </h:form>
                             </f:view>
                         </div>
-
                     </div>
                     <div class="clearfix"> </div>
 
