@@ -225,17 +225,6 @@
                                             controlNav: "thumbnails"
                                         });
                                     });
-                                    //Obtener valor y texto seleccionado del select de cantidad
-                                    function ShowSelected()
-                                    {
-                                        /* Para obtener el valor */
-                                        var cod = document.getElementById("country1").value;
-                                        alert(cod);
-                                        /* Para obtener el texto */
-                                        var combo = document.getElementById("country1");
-                                        var selected = combo.options[combo.selectedIndex].text;
-                                        alert(selected);
-                                    }
                                 </script>
                                 <!-- //FlexSlider-->
                                 <ul class="slides">
@@ -281,7 +270,8 @@
                         <div class="color-quality">
                             <div class="color-quality-right">
                                 <p></p>
-                                <h5>Garantia del producto: <b>#{singleBean.productoVO.garantiaMesesProducto} Meses</b></h5>
+                                <h5>Garantia: <b>#{singleBean.productoVO.garantiaMesesProducto} Meses</b></h5>
+                                <h5>Colores: <b>#{singleBean.productoVO.colorProducto}</b></h5>
                                 <h5>Cantidad :</h5>
                                 <select id="country1" onchange="ShowSelected()" class="frm-field required sect">
                                     <option value="1">1</option>
@@ -335,11 +325,12 @@
                                 </div>
                                 <div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="profile" aria-labelledby="profile-tab">
                                     <h5>Características del producto</h5>
-                                    <p><b>Altura:</b> #{singleBean.productoVO.altoProducto} cm</p>
-                                    <p><b>Anchura:</b> #{singleBean.productoVO.anchoProducto} cm</p>
                                     <p><b>Colores:</b> #{singleBean.productoVO.colorProducto} </p>
                                     <p><b>Material:</b> #{singleBean.productoVO.materialProducto} </p>    
-                                    <p><b>Garantia:</b> #{singleBean.productoVO.garantiaMesesProducto} Meses</p>  
+                                    <p><b>Garantia:</b> #{singleBean.productoVO.garantiaMesesProducto} Meses</p>                             
+                                    <h5>Medidas</h5>
+                                    <p><b>Altura:</b> #{singleBean.productoVO.altoProducto} cm</p>
+                                    <p><b>Anchura:</b> #{singleBean.productoVO.anchoProducto} cm</p>
                                     <!--<div class="bootstrap-tab-text-grids">
                                         <div class="bootstrap-tab-text-grid">
                                             <div class="bootstrap-tab-text-grid-left">
