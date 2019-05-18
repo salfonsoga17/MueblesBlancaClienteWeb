@@ -227,7 +227,7 @@ label{
     padding: 0px 0;
 }
 .dropdown-menu.columns-3 {
-    min-width: 700px;
+    min-width: 500px;
     padding: 30px 30px;
 }
 .multi-gd-img img{
