@@ -9,6 +9,7 @@
     <h:head>
         <f:metadata>
             <f:viewParam name="idCategoria" value="#{singleBean.selectedCategoria}" />
+            <f:viewParam name="nombreCategoria" value="#{singleBean.nombreCategoria}" />
             <f:event type="preRenderView" listener="#{singleBean.productosPorCategoria()}" />
         </f:metadata>
         <title>Muebles Blanca</title> 
@@ -46,6 +47,10 @@
             body .ui-state-hover{
                 background-color: #FDA30E!important;
             }
+            body .ui-widget-content {
+                background-color: #ffffff;
+                border: none;
+            }
         </style>
     </h:head>
     <h:body>       
@@ -80,7 +85,7 @@
                 </div>
                 <div class="col-md-3 header-right footer-bottom">
                     <ul>
-                        <li><a href="#" class="use1" data-toggle="modal" data-target="#myModal4"><span>Iniciar Sesion</span></a>                        </li>
+                        <li><a href="login.xhtml" class="use1" ><span>Iniciar Sesion</span> </a></li>
                         <li><a class="fb" href="https://www.facebook.com/MueblesBlancaCol/"></a></li>
                         <li><a class="insta" href="https://www.instagram.com/mueblesblanca/"></a></li>
                         <li><a></a></li>
@@ -124,6 +129,7 @@
                                                                 <li style="font-size: 140%;">
                                                                     <h:link outcome="category.xhtml" value="#{categoria.nombreCategoria}">
                                                                         <f:param  name="idCategoria" value="#{categoria.idCategoria}"/>
+                                                                        <f:param  name="nombreCategoria" value="#{categoria.nombreCategoria}"/>
                                                                     </h:link>
                                                                 </li>
                                                             </h:form>
@@ -176,7 +182,9 @@
                 <div class="sap_tabs">
                     <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
                         <ul class="resp-tabs-list">
-                            <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Productos por categoria</span></li> 
+                            <li class="resp-tab-item" aria-controls="tab_item-0" role="tab">
+                                <span>#{singleBean.nombreCategoria} disponibles</span>
+                            </li> 
                         </ul>				  	 
                         <div class="resp-tabs-container">                        
                             <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0" >
@@ -264,26 +272,22 @@
                        y amigos.</p>
                 </div>
                 <div class="col-md-7 footer-right">
-                    <!--<div class="col-sm-6 newsleft">
-                        <h3>SIGN UP FOR NEWSLETTER !</h3>
-                    </div>
-                    <div class="col-sm-6 newsright">
-                        <form>
-                            <input type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required=""/>
-                            <input type="submit" value="Submit"/>
-                        </form>
-                    </div>--> 
                     <div class="clearfix"></div>
                     <div class="sign-grds">
                         <div class="col-md-4 sign-gd">
                             <h4>Información</h4>
                             <ul>
-                                <li><a href="index.xhtml">Home</a></li>
-                                <li><a href="mens.html">Men's Wear</a></li>
-                                <li><a href="womens.html">Women's Wear</a></li>
-                                <li><a href="electronics.html">Electronics</a></li>
-                                <li><a href="codes.html">Short Codes</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <p:dataList value="#{categoriaBean.categorias}" var="categoria" >
+                                    <h:form>
+                                        <li class="h6">
+                                            <h:link outcome="category.xhtml" value="#{categoria.nombreCategoria} disponibles">
+                                                <f:param  name="idCategoria" value="#{categoria.idCategoria}"/>
+                                                <f:param  name="nombreCategoria" value="#{categoria.nombreCategoria}"/>
+                                            </h:link>
+                                        </li>
+                                    </h:form>
+                                </p:dataList>
+                                <li><a href="contact.xhtml" style="font-family: Open Sans, Helvetica Neue ,sans-serif;">Contáctenos</a></li>
                             </ul>
                         </div>
 
@@ -295,20 +299,6 @@
                                 <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>Teléfono : 3136091384</li>
                             </ul>
                         </div>
-                        <!--<div class="col-md-4 sign-gd flickr-post">
-                            <h4>Flickr Posts</h4>
-                            <ul>
-                                <li><a href="single.html"><img src="images/b15.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b16.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b17.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b18.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b15.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b16.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b17.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b18.jpg" alt=" " class="img-responsive" /></a></li>
-                                <li><a href="single.html"><img src="images/b15.jpg" alt=" " class="img-responsive" /></a></li>
-                            </ul>
-                        </div>-->
                         <div class="clearfix"></div>
                     </div>
                 </div>

@@ -40,6 +40,10 @@
             }
             body .ui-state-hover{
                 background-color: #FDA30E!important;
+            }   
+            body .ui-widget-content {
+                background-color: #ffffff;
+                border: none;
             }
         </style>
     </h:head>
@@ -76,7 +80,7 @@
                 </div>
                 <div class="col-md-3 header-right footer-bottom">
                     <ul>
-                        <li><a href="login.xhtml" class="use1" ><span>Iniciar Sesion</span> <span>Iniciar Sesion</span></a></li>
+                        <li><a href="login.xhtml" class="use1" ><span>Iniciar Sesion</span> </a></li>
                         <li><a class="fb" href="https://www.facebook.com/MueblesBlancaCol/"></a></li>
                         <li><a class="insta" href="https://www.instagram.com/mueblesblanca/"></a></li>
                         <li><a></a></li>
@@ -120,6 +124,7 @@
                                                                 <li style="font-size: 140%;">
                                                                     <h:link outcome="category.xhtml" value="#{categoria.nombreCategoria}">
                                                                         <f:param  name="idCategoria" value="#{categoria.idCategoria}"/>
+                                                                        <f:param  name="nombreCategoria" value="#{categoria.nombreCategoria}"/>
                                                                     </h:link>
                                                                 </li>
                                                             </h:form>
@@ -205,7 +210,7 @@
                         </ul>				  	 
                         <div class="resp-tabs-container">                        
                             <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0" >
-                                <p:dataScroller value="#{productoBean.productos}" var="producto" >
+                                <p:dataScroller value="#{productoBean.productos}" var="producto">
                                     <h:form>
                                         <div class="col-md-6 product-men">
                                             <div class="men-pro-item simpleCart_shelfItem">
@@ -293,12 +298,17 @@
                         <div class="col-md-4 sign-gd">
                             <h4>Información</h4>
                             <ul>
-                                <li><a href="index.xhtml">Home</a></li>
-                                <li><a href="mens.html">Men's Wear</a></li>
-                                <li><a href="womens.html">Women's Wear</a></li>
-                                <li><a href="electronics.html">Electronics</a></li>
-                                <li><a href="codes.html">Short Codes</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <p:dataList value="#{categoriaBean.categorias}" var="categoria" >
+                                    <h:form>
+                                        <li class="h6">
+                                            <h:link outcome="category.xhtml" value="#{categoria.nombreCategoria} disponibles">
+                                                <f:param  name="idCategoria" value="#{categoria.idCategoria}"/>
+                                                <f:param  name="nombreCategoria" value="#{categoria.nombreCategoria}"/>
+                                            </h:link>
+                                        </li>
+                                    </h:form>
+                                </p:dataList>
+                                <li><a href="contact.xhtml" style="font-family: Open Sans, Helvetica Neue ,sans-serif;">Contáctenos</a></li>
                             </ul>
                         </div>
 

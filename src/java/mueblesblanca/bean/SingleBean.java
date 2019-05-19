@@ -42,6 +42,7 @@ public class SingleBean {
     private Integer selectedEstado;
     private ProductoService productoService;
     private ProductoVO productoVO;
+    private String nombreCategoria;
     
     //Listas
     private List<ProductoVO> productos;
@@ -229,6 +230,14 @@ public class SingleBean {
 
     public void setProductos(List<ProductoVO> productos) {
         this.productos = productos;
+    }
+
+    public String getNombreCategoria() {
+        return nombreCategoria;
+    }
+
+    public void setNombreCategoria(String nombreCategoria) {
+        this.nombreCategoria = nombreCategoria;
     }
 
 }
