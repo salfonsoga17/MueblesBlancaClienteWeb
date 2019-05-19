@@ -18,4 +18,6 @@ public interface ProductoDAO {
     public ArrayList<ProductoVO> listar() throws Exception;
 
     public ProductoVO consultarPorId(long id) throws Exception;
+    
+    public ArrayList<ProductoVO> listarPorCategoria(long id) throws Exception;
 }

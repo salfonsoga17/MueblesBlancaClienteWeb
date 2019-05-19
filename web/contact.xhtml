@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -5,54 +6,41 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:c="http://java.sun.com/jsp/jstl/core">
-
     <h:head>
-        <f:metadata>
-            <f:viewParam name="idProducto" value="#{singleBean.idProducto}" />
-            <f:event type="preRenderView" listener="#{singleBean.preRenderView()}" />
-        </f:metadata>
         <title>Muebles Blanca</title> 
         <!-- for-mobile-apps -->
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="keywords" content="Smart Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
               Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-            function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <script type="application/x-javascript"> 
+            addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+            function hideURLbar(){ window.scrollTo(0,1); } 
+        </script>
         <!-- //for-mobile-apps -->
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-        <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+        <!-- pignose css -->
+        <link href="css/pignose.layerslider.css" rel="stylesheet" type="text/css" media="all" />
+        <!-- //pignose css -->
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
         <!-- js -->
         <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-        <!-- //js -->
-        <!-- single -->
-        <script src="js/imagezoom.js"></script>
-        <script src="js/jquery.flexslider.js"></script>
-        <!-- single -->
-        <!-- cart -->
+        <!-- //js --> <!-- cart -->
         <script src="js/simpleCart.min.js"></script>
-        <!-- cart -->
-        <!-- for bootstrap working -->
+        <!-- cart --> <!-- for bootstrap working -->
         <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
         <!-- //for bootstrap working -->
-        <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'/>
-        <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'/>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css' />
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css' />
         <script src="js/jquery.easing.min.js"></script>
         <style>
-            body .ui-button{
-                background-color: #FDA30E!important;
-            }
-            body .ui-state-hover{
-                background-color: #FDA30E!important;
-            }
             body .ui-widget-content {
                 background-color: #ffffff;
                 border: none;
-            }
+            }            
         </style>
     </h:head>
-    <h:body>       
+    <h:body>
         <!-- header-bot -->
         <div class="header-bot">
             <div class="container">
@@ -73,7 +61,6 @@
                                 <option value="null">Sofas</option>     
                                 <option value="AX">Comedores</option>
                                 <option value="AX">Salas</option>
-                                <option value="AX">Armarios</option>
                             </select>
                         </div>
                         <div class="sear-sub">
@@ -164,167 +151,56 @@
             </div>
         </div>
         <!-- //banner-top -->
-        <!-- banner -->
         <div class="page-head">
             <div class="container">
-                <h3><b>Información del Producto</b></h3>
+                <h3><b>Contáctenos</b></h3>
             </div>
         </div>
         <!-- //banner -->
-        <!-- single -->
-        <p:dataScroller value="#{singleBean.productoVO}" var="producto" >
-            <div class="single">
-                <div class="container">
-                    <div class="col-md-6 single-right-left animated wow slideInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInUp;">
-                        <div class="grid images_3_of_2">
-                            <!--<div class="flexslider">-->
-                            <div class="">
-                                <!-- FlexSlider -->
-                                <script>
-                                    // Can also be used with $(document).ready()
-                                    $(window).load(function () {
-                                        $('.flexslider').flexslider({
-                                            animation: "slide",
-                                            controlNav: "thumbnails"
-                                        });
-                                    });
-                                </script>
-                                <!-- //FlexSlider-->
-                                <ul class="slides">
-                                    <li data-thumb="data:image/png;base64,${singleBean.productoVO.imagenProducto.imagenFoto}">
-                                        <div class="thumb-image"> <img src="data:image/png;base64,${singleBean.productoVO.imagenProducto.imagenFoto}" data-imagezoom="true" class="img-responsive"/> </div>
-                                    </li>
-                                    <!--<li data-thumb="images/d1.jpg">
-                                        <div class="thumb-image"> <img src="images/d1.jpg" data-imagezoom="true" class="img-responsive"/> </div>
-                                    </li>	
-                                    <li data-thumb="images/d3.jpg">
-                                        <div class="thumb-image"> <img src="images/d3.jpg" data-imagezoom="true" class="img-responsive"/> </div>
-                                    </li>
-                                    <li data-thumb="images/d4.jpg">
-                                        <div class="thumb-image"> <img src="images/d4.jpg" data-imagezoom="true" class="img-responsive"/> </div>
-                                    </li>-->	
-                                </ul>
-                                <div class="clearfix"></div>
-                            </div>	
-                        </div>
-                    </div>
-                    <div class="col-md-6 single-right-left simpleCart_shelfItem animated wow slideInRight animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInRight;">
-                        <h3><b>#{singleBean.productoVO.nombreProducto}</b></h3>
-                        <p>
-                            <h:outputText class="item_price" value='#{singleBean.productoVO.valorUnitarioProducto}'>
-                            <f:convertNumber currencySymbol='$' groupingUsed='true' maxFractionDigits='0' type='currency' locale='es_CO' />
-                            </h:outputText>
-                        </p> 
-                        <!--<p><span class="item_price">$ #{singleBean.productoVO.valorUnitarioProducto}</span></p>-->
-                        <div class="rating1">
-                            <span class="starRating">
-                                <input id="rating5" type="radio" name="rating" value="5"/>
-                                <label for="rating5">5</label>
-                                <input id="rating4" type="radio" name="rating" value="4"/>
-                                <label for="rating4">4</label>
-                                <input id="rating3" type="radio" name="rating" value="3" checked=""/>
-                                <label for="rating3">3</label>
-                                <input id="rating2" type="radio" name="rating" value="2"/>
-                                <label for="rating2">2</label>
-                                <input id="rating1" type="radio" name="rating" value="1"/>
-                                <label for="rating1">1</label>
-                            </span>
-                        </div>
-                        <div class="color-quality">
-                            <div class="color-quality-right">
-                                <p></p>
-                                <h5>Garantia: <b>#{singleBean.productoVO.garantiaMesesProducto} Meses</b></h5>
-                                <h5>Colores: <b>#{singleBean.productoVO.colorProducto}</b></h5>
-                                <h5>Cantidad :</h5>
-                                <select id="country1" onchange="ShowSelected()" class="frm-field required sect">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option> 
-                                    <option value="3">3</option>					
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>								
-                                </select>
-                            </div>
-                        </div>
-                        <div class="occasional">
-                            <!--<h5>Types :</h5>
-                            <div class="colr ert">
-                                <label class="radio"><input type="radio" name="radio" checked=""/><i></i>Casual Shoes</label>
-                            </div>
-                            <div class="colr">
-                                <label class="radio"><input type="radio" name="radio"/><i></i>Sports Shoes</label>
-                            </div>
-                            <div class="colr">
-                                <label class="radio"><input type="radio" name="radio"/><i></i>Formal Shoes</label>
-                            </div>
-                            <div class="clearfix"> </div>-->
-                        </div>
-                        <div class="occasion-cart">
-                            <f:view>
-                                <h:form>
-                                    <p:commandLink styleClass="item_add hvr-outline-out button2" value="Añadir al carrito" action="#{CarritoBean.agregarProducto(singleBean.productoVO, 1)}" ajax="false" ></p:commandLink>
-                                </h:form>
-                            </f:view>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-
-                    <div class="bootstrap-tab animated wow slideInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInUp;">
-                        <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-                            <ul id="myTab" class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Descripción</a></li>
-                                <li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Características #{singleBean.productoVO.nombreProducto}</a></li>
-                                <!--<li role="presentation" class="dropdown">
-                                    <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents">Information <span class="caret"></span></a>
-                                    <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
-                                        <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">cleanse</a></li>
-                                        <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">fanny</a></li>
-                                    </ul>
-                                </li>-->
-                            </ul>
-                            <div id="myTabContent" class="tab-content">
-                                <div role="tabpanel" class="tab-pane fade in active bootstrap-tab-text" id="home" aria-labelledby="home-tab">
-                                    <h5>Descripción Breve del Producto</h5>
-                                    <p>#{singleBean.productoVO.descripcionProducto}</p>
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="profile" aria-labelledby="profile-tab">
-                                    <h5>Características del producto</h5>
-                                    <p><b>Colores:</b> #{singleBean.productoVO.colorProducto} </p>
-                                    <p><b>Material:</b> #{singleBean.productoVO.materialProducto} </p>    
-                                    <p><b>Garantia:</b> #{singleBean.productoVO.garantiaMesesProducto} Meses</p>                             
-                                    <h5>Medidas</h5>
-                                    <p><b>Altura:</b> #{singleBean.productoVO.altoProducto} cm</p>
-                                    <p><b>Anchura:</b> #{singleBean.productoVO.anchoProducto} cm</p>
-                                    <!--<div class="bootstrap-tab-text-grids">
-                                        <div class="bootstrap-tab-text-grid">
-                                            <div class="bootstrap-tab-text-grid-left">
-                                                <img src="images/men3.jpg" alt=" " class="img-responsive"/>
-                                            </div>
-                                            <div class="bootstrap-tab-text-grid-right">
-                                                <ul>
-                                                    <li><a href="#">Admin</a></li>
-                                                    <li><a href="#"><span class="glyphicon glyphicon-share" aria-hidden="true"></span>Reply</a></li>
-                                                </ul>
-                                                <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis 
-                                                    suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem 
-                                                    vel eum iure reprehenderit.</p>
-                                            </div>
-                                            <div class="clearfix"> </div>
-                                        </div>
-                                    </div>-->
-                                </div>
-                                <!--<div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="dropdown1" aria-labelledby="dropdown1-tab">
-                                    <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="dropdown2" aria-labelledby="dropdown2-tab">
-                                    <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
-                                </div>-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </p:dataScroller>
-        <!-- //single -->
+        <!-- //banner -->
+        <!-- contact -->
+	<div class="contact">
+		<div class="container">
+			<div class="contact-grids">
+				<div class="col-md-4 contact-grid text-center animated wow slideInLeft" data-wow-delay=".5s">
+					<div class="contact-grid1">
+						<i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>
+						<h4>Dirección</h4>
+						<p>Carrera. 68L #37d Sur-16 a 37d Sur-2, <span>Bogotá.</span></p>
+					</div>
+				</div>
+				<div class="col-md-4 contact-grid text-center animated wow slideInUp" data-wow-delay=".5s">
+					<div class="contact-grid2">
+						<i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>
+						<h4>Llamanos</h4>
+						<p>300 6009099<span>3136091384</span></p>
+					</div>
+				</div>
+				<div class="col-md-4 contact-grid text-center animated wow slideInRight" data-wow-delay=".5s">
+					<div class="contact-grid3">
+						<i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>
+						<h4>Email</h4>
+						<p><a href="mailto:mueblesblancacol@gmail.com">mueblesblancacol@gmail.com</a></p>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="map wow fadeInDown animated" data-wow-delay=".5s">
+				<h3 class="tittle">Nuestra ubicación</h3>				
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.9267496626885!2d-74.14052788618493!3d4.607135596653063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9ec79f364325%3A0xe36ee89b92d3bcba!2sMuebles+Blanca!5e0!3m2!1ses-419!2sco!4v1557599221908!5m2!1ses-419!2sco" frameborder="0" style="border:0"></iframe>
+			</div>
+			<h3 class="tittle">Formulario de Contacto</h3>
+			<form>
+				<div class="contact-form2">
+					<input type="text" value="Nombre" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required=""></input>
+					<input type="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required=""></input>
+					<textarea type="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Mensaje...</textarea>
+                                        <input type="submit" value="Enviar" ></input>
+				</div>
+			</form>
+		</div>
+	</div>	
+        <!-- //contact -->
         <!-- //product-nav -->
         <div class="coupons">
             <div class="container">
@@ -459,7 +335,7 @@
                                             <label for="brand"><span></span>Remember Me.</label>
                                         </div>
                                         <div class="sign-in">
-                                            <input type="submit" value="SIGNIN" />
+                                            <input type="submit" value="SIGNIN"/>
                                         </div>
                                     </form>
                                 </div>

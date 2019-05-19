@@ -15,7 +15,6 @@ import mueblesblanca.vo.DetalleOrdenVO;
  *
  * @author Sergio AlfonsoG
  */
-
 public class DetalleOrdenDAOMS extends ConexionSQL implements DetalleOrdenDAO {
 
     @Override
@@ -25,8 +24,8 @@ public class DetalleOrdenDAOMS extends ConexionSQL implements DetalleOrdenDAO {
             this.Conectar();
 
             String consulta = "INSERT INTO DetalleOrden (IdOrdenCompraDetalleOrden, IdProductoDetalleOrden, "
-                            + "CantidadDetalleOrden, Subtotal) "
-                            + "VALUES(?, ?, ?, ?) ";
+                    + "CantidadDetalleOrden, SubtotalDetalleOrden) "
+                    + "VALUES(?, ?, ?, ?) ";
 
             System.out.println("QUERY insertar " + consulta);
             PreparedStatement pstm = this.conection.prepareStatement(consulta);
@@ -34,7 +33,7 @@ public class DetalleOrdenDAOMS extends ConexionSQL implements DetalleOrdenDAO {
             pstm.setInt(1, detalleOrdenVO.getIdOrdenCompraDetalleCompra().getIdOrdenCompra());
             pstm.setInt(2, detalleOrdenVO.getIdProductoDetalleOrden().getIdProducto());
             pstm.setInt(3, detalleOrdenVO.getCantidadDetalleOrden());
-            pstm.setBigDecimal(3, detalleOrdenVO.getSubtotalDetalleOrden());
+            pstm.setBigDecimal(4, detalleOrdenVO.getSubtotalDetalleOrden());
 
             resultado = pstm.executeUpdate();
         } catch (Exception e) {
@@ -68,7 +67,7 @@ public class DetalleOrdenDAOMS extends ConexionSQL implements DetalleOrdenDAO {
             pstm.setInt(2, detalleOrdenVO.getIdProductoDetalleOrden().getIdProducto());
             pstm.setInt(3, detalleOrdenVO.getCantidadDetalleOrden());
             pstm.setBigDecimal(4, detalleOrdenVO.getSubtotalDetalleOrden());
-            
+
             pstm.setInt(5, detalleOrdenVO.getIdDetalleOrden());
 
             resultado = pstm.executeUpdate();
@@ -113,8 +112,8 @@ public class DetalleOrdenDAOMS extends ConexionSQL implements DetalleOrdenDAO {
         try {
             this.Conectar();
             String consulta = "SELECT IdDetalleOrden, IdOrdenCompraDetalleOrden, IdProductoDetalleOrden, "
-                            + "CantidadDetalleOrden, Subtotal"
-                            + "FROM DetalleOrden ";
+                    + "CantidadDetalleOrden, Subtotal"
+                    + "FROM DetalleOrden ";
 
             System.out.println("QUERY listar " + consulta);
             PreparedStatement pstm = this.conection.prepareStatement(consulta);
@@ -148,8 +147,8 @@ public class DetalleOrdenDAOMS extends ConexionSQL implements DetalleOrdenDAO {
         try {
             this.Conectar();
             String consulta = "SELECT IdDetalleOrden, IdOrdenCompraDetalleOrden, IdProductoDetalleOrden, "
-                            + "CantidadDetalleOrden, Subtotal"
-                            + "FROM DetalleOrden WHERE IdDetalleOrden = ?  ";
+                    + "CantidadDetalleOrden, Subtotal"
+                    + "FROM DetalleOrden WHERE IdDetalleOrden = ?  ";
 
             System.out.println("QUERY consultarPorId " + consulta);
             PreparedStatement pstm = this.conection.prepareStatement(consulta);

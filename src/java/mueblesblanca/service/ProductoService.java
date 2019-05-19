@@ -74,5 +74,30 @@ public class ProductoService {
             return productoVO;
         }
     }
+    
+    public ArrayList<ProductoVO> listarPorCategoria(long idCategoria) throws Exception {
+
+        ArrayList<ProductoVO> lista = new ArrayList<ProductoVO>();
+        ArrayList<ProductoVO> listaNueva = new ArrayList<ProductoVO>();
+        try {
+            lista = productoDAO.listarPorCategoria(idCategoria);
+
+            for (ProductoVO p : lista) {
+                InputStream in = new ByteArrayInputStream(p.getImagenProducto().getCodigoImagen());
+                Blob blob = new javax.sql.rowset.serial.SerialBlob(p.getImagenProducto().getCodigoImagen());
+                String imagenBase64 = convertir.convertirABase64(in, blob);
+                p.getImagenProducto().setImagenFoto(imagenBase64);
+                listaNueva.add(p);
+                if (p.getImagenProducto().getImagenFoto() == null) {
+                    listaNueva.remove(p);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("ProductoService: Se presento un error al "
+                    + "listar la tabla por categoria: " + e.getMessage());
+        } finally {
+            return lista;
+        }
+    }
 
 }

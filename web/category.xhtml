@@ -8,8 +8,9 @@
 
     <h:head>
         <f:metadata>
-            <f:viewParam name="idProducto" value="#{singleBean.idProducto}" />
-            <f:event type="preRenderView" listener="#{singleBean.preRenderView()}" />
+            <f:viewParam name="idCategoria" value="#{singleBean.selectedCategoria}" />
+            <f:viewParam name="nombreCategoria" value="#{singleBean.nombreCategoria}" />
+            <f:event type="preRenderView" listener="#{singleBean.productosPorCategoria()}" />
         </f:metadata>
         <title>Muebles Blanca</title> 
         <!-- for-mobile-apps -->
@@ -164,166 +165,72 @@
             </div>
         </div>
         <!-- //banner-top -->
-        <!-- banner -->
-        <div class="page-head">
-            <div class="container">
-                <h3><b>Información del Producto</b></h3>
-            </div>
-        </div>
-        <!-- //banner -->
         <!-- single -->
-        <p:dataScroller value="#{singleBean.productoVO}" var="producto" >
-            <div class="single">
-                <div class="container">
-                    <div class="col-md-6 single-right-left animated wow slideInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInUp;">
-                        <div class="grid images_3_of_2">
-                            <!--<div class="flexslider">-->
-                            <div class="">
-                                <!-- FlexSlider -->
-                                <script>
-                                    // Can also be used with $(document).ready()
-                                    $(window).load(function () {
-                                        $('.flexslider').flexslider({
-                                            animation: "slide",
-                                            controlNav: "thumbnails"
-                                        });
-                                    });
-                                </script>
-                                <!-- //FlexSlider-->
-                                <ul class="slides">
-                                    <li data-thumb="data:image/png;base64,${singleBean.productoVO.imagenProducto.imagenFoto}">
-                                        <div class="thumb-image"> <img src="data:image/png;base64,${singleBean.productoVO.imagenProducto.imagenFoto}" data-imagezoom="true" class="img-responsive"/> </div>
-                                    </li>
-                                    <!--<li data-thumb="images/d1.jpg">
-                                        <div class="thumb-image"> <img src="images/d1.jpg" data-imagezoom="true" class="img-responsive"/> </div>
-                                    </li>	
-                                    <li data-thumb="images/d3.jpg">
-                                        <div class="thumb-image"> <img src="images/d3.jpg" data-imagezoom="true" class="img-responsive"/> </div>
-                                    </li>
-                                    <li data-thumb="images/d4.jpg">
-                                        <div class="thumb-image"> <img src="images/d4.jpg" data-imagezoom="true" class="img-responsive"/> </div>
-                                    </li>-->	
-                                </ul>
-                                <div class="clearfix"></div>
-                            </div>	
-                        </div>
-                    </div>
-                    <div class="col-md-6 single-right-left simpleCart_shelfItem animated wow slideInRight animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInRight;">
-                        <h3><b>#{singleBean.productoVO.nombreProducto}</b></h3>
-                        <p>
-                            <h:outputText class="item_price" value='#{singleBean.productoVO.valorUnitarioProducto}'>
-                            <f:convertNumber currencySymbol='$' groupingUsed='true' maxFractionDigits='0' type='currency' locale='es_CO' />
-                            </h:outputText>
-                        </p> 
-                        <!--<p><span class="item_price">$ #{singleBean.productoVO.valorUnitarioProducto}</span></p>-->
-                        <div class="rating1">
-                            <span class="starRating">
-                                <input id="rating5" type="radio" name="rating" value="5"/>
-                                <label for="rating5">5</label>
-                                <input id="rating4" type="radio" name="rating" value="4"/>
-                                <label for="rating4">4</label>
-                                <input id="rating3" type="radio" name="rating" value="3" checked=""/>
-                                <label for="rating3">3</label>
-                                <input id="rating2" type="radio" name="rating" value="2"/>
-                                <label for="rating2">2</label>
-                                <input id="rating1" type="radio" name="rating" value="1"/>
-                                <label for="rating1">1</label>
-                            </span>
-                        </div>
-                        <div class="color-quality">
-                            <div class="color-quality-right">
-                                <p></p>
-                                <h5>Garantia: <b>#{singleBean.productoVO.garantiaMesesProducto} Meses</b></h5>
-                                <h5>Colores: <b>#{singleBean.productoVO.colorProducto}</b></h5>
-                                <h5>Cantidad :</h5>
-                                <select id="country1" onchange="ShowSelected()" class="frm-field required sect">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option> 
-                                    <option value="3">3</option>					
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>								
-                                </select>
-                            </div>
-                        </div>
-                        <div class="occasional">
-                            <!--<h5>Types :</h5>
-                            <div class="colr ert">
-                                <label class="radio"><input type="radio" name="radio" checked=""/><i></i>Casual Shoes</label>
-                            </div>
-                            <div class="colr">
-                                <label class="radio"><input type="radio" name="radio"/><i></i>Sports Shoes</label>
-                            </div>
-                            <div class="colr">
-                                <label class="radio"><input type="radio" name="radio"/><i></i>Formal Shoes</label>
-                            </div>
-                            <div class="clearfix"> </div>-->
-                        </div>
-                        <div class="occasion-cart">
-                            <f:view>
-                                <h:form>
-                                    <p:commandLink styleClass="item_add hvr-outline-out button2" value="Añadir al carrito" action="#{CarritoBean.agregarProducto(singleBean.productoVO, 1)}" ajax="false" ></p:commandLink>
-                                </h:form>
-                            </f:view>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
+        <div class="product-easy">
+            <div class="container">
 
-                    <div class="bootstrap-tab animated wow slideInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInUp;">
-                        <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-                            <ul id="myTab" class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Descripción</a></li>
-                                <li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Características #{singleBean.productoVO.nombreProducto}</a></li>
-                                <!--<li role="presentation" class="dropdown">
-                                    <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents">Information <span class="caret"></span></a>
-                                    <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
-                                        <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">cleanse</a></li>
-                                        <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">fanny</a></li>
-                                    </ul>
-                                </li>-->
-                            </ul>
-                            <div id="myTabContent" class="tab-content">
-                                <div role="tabpanel" class="tab-pane fade in active bootstrap-tab-text" id="home" aria-labelledby="home-tab">
-                                    <h5>Descripción Breve del Producto</h5>
-                                    <p>#{singleBean.productoVO.descripcionProducto}</p>
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="profile" aria-labelledby="profile-tab">
-                                    <h5>Características del producto</h5>
-                                    <p><b>Colores:</b> #{singleBean.productoVO.colorProducto} </p>
-                                    <p><b>Material:</b> #{singleBean.productoVO.materialProducto} </p>    
-                                    <p><b>Garantia:</b> #{singleBean.productoVO.garantiaMesesProducto} Meses</p>                             
-                                    <h5>Medidas</h5>
-                                    <p><b>Altura:</b> #{singleBean.productoVO.altoProducto} cm</p>
-                                    <p><b>Anchura:</b> #{singleBean.productoVO.anchoProducto} cm</p>
-                                    <!--<div class="bootstrap-tab-text-grids">
-                                        <div class="bootstrap-tab-text-grid">
-                                            <div class="bootstrap-tab-text-grid-left">
-                                                <img src="images/men3.jpg" alt=" " class="img-responsive"/>
+                <script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+                <script type="text/javascript">
+                                $(document).ready(function () {
+                                    $('#horizontalTab').easyResponsiveTabs({
+                                        type: 'default', //Types: default, vertical, accordion           
+                                        width: 'auto', //auto or any width like 600px
+                                        fit: true   // 100% fit in a container
+                                    });
+                                });
+                </script>
+                <div class="sap_tabs">
+                    <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                        <ul class="resp-tabs-list">
+                            <li class="resp-tab-item" aria-controls="tab_item-0" role="tab">
+                                <span>#{singleBean.nombreCategoria} disponibles</span>
+                            </li> 
+                        </ul>				  	 
+                        <div class="resp-tabs-container">                        
+                            <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0" >
+                                <p:dataScroller value="#{singleBean.productos}" var="producto" >
+                                    <h:form>
+                                        <div class="col-md-6 product-men">
+                                            <div class="men-pro-item simpleCart_shelfItem">
+                                                <div class="men-thumb-item">
+                                                    <img src="data:image/png;base64,${producto.imagenProducto.imagenFoto}" alt="" class="pro-image-front"/>
+                                                    <img src="data:image/png;base64,${producto.imagenProducto.imagenFoto}" alt="" class="pro-image-back"/>
+                                                    <div class="men-cart-pro">
+                                                        <div class="inner-men-cart-pro">
+                                                            <h:link value="Vista Rápida" outcome="single.xhtml" class="link-product-add-cart" >
+                                                                <f:param  name="idProducto" value="#{producto.idProducto}"/>
+                                                            </h:link>
+                                                            <!--<a href="single.html" class="link-product-add-cart">Vista Rápida</a>-->
+                                                        </div>
+                                                    </div>     
+                                                </div>
+                                                <div class="item-info-product ">
+                                                    <h4>
+                                                        <b>
+                                                            <h:link outcome="single.xhtml" value="#{producto.nombreProducto}">
+                                                                <f:param  name="idProducto" value="#{producto.idProducto}"/>
+                                                            </h:link>
+                                                        </b>
+                                                    </h4>
+                                                    <div class="info-product-price"> 
+                                                        <h:outputText class="item_price" value='#{producto.valorUnitarioProducto}'>
+                                                            <f:convertNumber currencySymbol='$' groupingUsed='true' maxFractionDigits='0' type='currency' locale='es_CO' />
+                                                        </h:outputText>                                               
+                                                        <!--<span class="item_price">$ #{producto.valorUnitarioProducto}</span>-->
+                                                    </div>
+                                                    <p:commandButton styleClass="item_add single-item hvr-outline-out button2" value="Añadir al carrito" action="#{CarritoBean.agregarProducto(producto, 1)}" ajax="false" ></p:commandButton>
+                                                </div>                         
                                             </div>
-                                            <div class="bootstrap-tab-text-grid-right">
-                                                <ul>
-                                                    <li><a href="#">Admin</a></li>
-                                                    <li><a href="#"><span class="glyphicon glyphicon-share" aria-hidden="true"></span>Reply</a></li>
-                                                </ul>
-                                                <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis 
-                                                    suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem 
-                                                    vel eum iure reprehenderit.</p>
-                                            </div>
-                                            <div class="clearfix"> </div>
                                         </div>
-                                    </div>-->
-                                </div>
-                                <!--<div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="dropdown1" aria-labelledby="dropdown1-tab">
-                                    <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="dropdown2" aria-labelledby="dropdown2-tab">
-                                    <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
-                                </div>-->
-                            </div>
-                        </div>
+                                    </h:form>
+                                </p:dataScroller> 
+                                <div class="clearfix"></div>		
+                            </div>	
+                        </div>	
                     </div>
                 </div>
             </div>
-        </p:dataScroller>
+        </div>         
         <!-- //single -->
         <!-- //product-nav -->
         <div class="coupons">

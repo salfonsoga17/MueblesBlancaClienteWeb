@@ -16,11 +16,14 @@ import java.sql.Timestamp;
 public class OrdenCompraVO {
     
     private Integer idOrdenCompra;
-    private PersonaVO idPersonaOrdenCompra;
+    private PersonaVO personaOrdenCompra;
     private Timestamp fechaCompraOrdenCompra;
     private Timestamp fechaPagoOrdenCompra;
     private BigDecimal totalOrdenCompra;    
     
+    public OrdenCompraVO(){
+        personaOrdenCompra = new PersonaVO();
+    }
     public Integer getIdOrdenCompra() {
         return idOrdenCompra;
     }
@@ -29,12 +32,12 @@ public class OrdenCompraVO {
         this.idOrdenCompra = idOrdenCompra;
     }
 
-    public PersonaVO getIdPersonaOrdenCompra() {
-        return idPersonaOrdenCompra;
+    public PersonaVO getPersonaOrdenCompra() {
+        return personaOrdenCompra;
     }
 
-    public void setIdPersonaOrdenCompra(PersonaVO idPersonaOrdenCompra) {
-        this.idPersonaOrdenCompra = idPersonaOrdenCompra;
+    public void setPersonaOrdenCompra(PersonaVO PersonaOrdenCompra) {
+        this.personaOrdenCompra = PersonaOrdenCompra;
     }
 
     public Timestamp getFechaCompraOrdenCompra() {

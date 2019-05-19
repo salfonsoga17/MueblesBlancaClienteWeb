@@ -5,10 +5,13 @@
  */
 package mueblesblanca.service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import mueblesblanca.dao.OrdenCompraDAO;
 import mueblesblanca.dao.OrdenCompraDAOMS;
+import mueblesblanca.vo.Item;
 import mueblesblanca.vo.OrdenCompraVO;
+import mueblesblanca.vo.PersonaVO;
 
 /**
  *
@@ -23,10 +26,13 @@ public class OrdenCompraService {
         ordenCompraDAO = new OrdenCompraDAOMS();
     }
 
-    public int insertar(OrdenCompraVO ordenCompraVO) throws Exception {
+    public int insertar(PersonaVO usuario, BigDecimal total) throws Exception {
         int resultado = -1;
         try {
-            resultado = ordenCompraDAO.insertar(ordenCompraVO);
+            OrdenCompraVO ordenCompra = new OrdenCompraVO();
+            ordenCompra.setPersonaOrdenCompra(usuario);
+            ordenCompra.setTotalOrdenCompra(total);
+            resultado = ordenCompraDAO.insertar(ordenCompra);
         } catch (Exception e) {
             System.out.println("OrdenCompraService: Se presento un error al "
                     + "insertar: " + e.getMessage());

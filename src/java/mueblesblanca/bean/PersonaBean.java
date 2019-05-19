@@ -76,7 +76,7 @@ public class PersonaBean implements Serializable {
             personaVO.setIdPersona(id);
 
             personaVO.setNumeroIdentificacionPersona(NumeroIdentificacionPersona);
-            personaVO.getIdTipoDocumentoPersona().setIdTipoDocumento(selectedIdTipoDocumentoPersona);
+            personaVO.getTipoDocumentoPersona().setIdTipoDocumento(selectedIdTipoDocumentoPersona);
             personaVO.setPrimerNombrePersona(primerNombrePersona);
             personaVO.setSegundoNombrePersona(segundoNombrePersona);
             personaVO.setPrimerApellidoPersona(primerApellidoPersona);
@@ -84,7 +84,7 @@ public class PersonaBean implements Serializable {
             personaVO.setEmailPersona(EmailPersona);
             personaVO.setCelularPersonaNatural(celularPersona);
             personaVO.setDireccionPersona(direccionPersona);
-            personaVO.getIdRolPersona().setIdRol(selectedIdRolPersona);
+            personaVO.getRolPersona().setIdRol(selectedIdRolPersona);
             personaVO.setPasswordPersona(passwordPersona);
 
             if (personaService.actualizar(personaVO) > 0) {
@@ -113,7 +113,7 @@ public class PersonaBean implements Serializable {
             personaVO = new PersonaVO();
 
             personaVO.setNumeroIdentificacionPersona(NumeroIdentificacionPersona);
-            personaVO.getIdTipoDocumentoPersona().setIdTipoDocumento(selectedIdTipoDocumentoPersona);
+            personaVO.getTipoDocumentoPersona().setIdTipoDocumento(selectedIdTipoDocumentoPersona);
             personaVO.setPrimerNombrePersona(primerNombrePersona);
             personaVO.setSegundoNombrePersona(segundoNombrePersona);
             personaVO.setPrimerApellidoPersona(primerApellidoPersona);
@@ -121,7 +121,7 @@ public class PersonaBean implements Serializable {
             personaVO.setEmailPersona(EmailPersona);
             personaVO.setCelularPersonaNatural(celularPersona);
             personaVO.setDireccionPersona(direccionPersona);
-            personaVO.getIdRolPersona().setIdRol(selectedIdRolPersona);
+            personaVO.getRolPersona().setIdRol(selectedIdRolPersona);
             personaVO.setPasswordPersona(passwordPersona);
 
             if (personaService.insertar(personaVO) > 0) {

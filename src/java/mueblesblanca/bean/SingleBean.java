@@ -6,6 +6,7 @@
 package mueblesblanca.bean;
 
 import java.math.BigDecimal;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.Application;
 import javax.faces.bean.ManagedBean;
@@ -41,6 +42,10 @@ public class SingleBean {
     private Integer selectedEstado;
     private ProductoService productoService;
     private ProductoVO productoVO;
+    private String nombreCategoria;
+    
+    //Listas
+    private List<ProductoVO> productos;
 
     @PostConstruct
     public void init() {
@@ -51,6 +56,7 @@ public class SingleBean {
                 //se inicializan los services y  objetos
                 setProductoService(new ProductoService());
                 setProductoVO(new ProductoVO());
+                setProductos(productoService.listarPorCategoria(selectedCategoria));
 
             } catch (Exception e) {
 
@@ -64,6 +70,14 @@ public class SingleBean {
 
         idProductoVista = getIdProducto();
         setProductoVO(getProductoService().consultarPorId(idProductoVista));
+    }
+    
+    public void productosPorCategoria() throws Exception {
+        System.out.println("IdCategoria " + getSelectedCategoria());
+        int idProductoVista;
+
+        idProductoVista = getSelectedCategoria();
+        setProductos(getProductoService().listarPorCategoria(idProductoVista));
     }
 
     public Integer getIdProducto() {
@@ -208,6 +222,22 @@ public class SingleBean {
 
     public void setProductoVO(ProductoVO productoVO) {
         this.productoVO = productoVO;
+    }
+
+    public List<ProductoVO> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<ProductoVO> productos) {
+        this.productos = productos;
+    }
+
+    public String getNombreCategoria() {
+        return nombreCategoria;
+    }
+
+    public void setNombreCategoria(String nombreCategoria) {
+        this.nombreCategoria = nombreCategoria;
     }
 
 }

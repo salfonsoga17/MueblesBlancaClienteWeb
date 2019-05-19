@@ -6,7 +6,6 @@
 package mueblesblanca.vo;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 
 /**
  *

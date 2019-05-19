@@ -71,15 +71,15 @@ public class RegisterBean implements Serializable {
             personaVO.setRolPersona(new RolVO());
             personaVO.getRolPersona().setIdRol(1);
             if (personaService.insertar(personaVO) > 0) {
-                FacesContext.getCurrentInstance().addMessage(null,
-                        new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Se ha creado la Cuenta"));
+                FacesContext.getCurrentInstance().addMessage("messagesRegister",
+                    new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Se ha creado la Cuenta"));
                 resetInput();
-                return "/login.xhtml";
             } else {
-                FacesContext.getCurrentInstance().addMessage(null,
-                        new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Se produjo un error al registrarse"));
+                FacesContext.getCurrentInstance().addMessage("messagesRegister",
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Se produjo un error al registrarse"));
             }
         } catch (Exception e) {
+            System.out.println(e.getClass());
             System.out.println("error: " + e.getMessage());
         }
         return "";
