@@ -73,7 +73,7 @@ and open the template in the editor.
                             </div>
                             <div style="margin-bottom: 25px" class="form-group">
                                 <h:outputLabel for="register-personalid" value="Segundo Apellido: "/>
-                                <p:inputText id="register-secondsurname" styleClass="form-control" value="#{registerBean.secondSurname}" ></p:inputText>                                        
+                                <p:inputText id="register-secondsurname" styleClass="form-control" value="#{registerBean.secondSurname}"></p:inputText>                                        
                             </div>
 
                             <div style="margin-bottom: 25px" class="form-group">
@@ -83,7 +83,8 @@ and open the template in the editor.
                             </div>
                             <div style="margin-bottom: 25px" class="form-group">
                                 <h:outputLabel for="register-personalid" value="Celular: *"/>
-                                <p:inputText id="register-phoneNumber" type="number" styleClass="form-control"  value="#{registerBean.phoneNumber}"></p:inputText>
+                                <p:inputText id="register-phoneNumber" type="number" styleClass="form-control" value="#{registerBean.phoneNumber}" required="true" requiredMessage="Ingresa tu teléfono"></p:inputText>
+                                <p:message for="register-phoneNumber" display="text" />
                             </div>
                             <div style="margin-bottom: 25px" class="form-group">
                                 <h:outputLabel for="register-personalid" value="Correo Electrónico: *"/>
@@ -96,7 +97,7 @@ and open the template in the editor.
                             <div style="margin-bottom: 25px" class="form-group">
                                 <h:outputLabel for="register-personalid" value="Contraseña: *"/>
                                 <p:password id="register-password" styleClass="form-control" required="true" value="#{registerBean.password}" feedback="true"
-                                            promptLabel="Por favor ingrese una contrseña" weakLabel="debil"
+                                            promptLabel="Por favor ingrese una contraseña" weakLabel="debil"
                                             goodLabel="bien" strongLabel="fuerte" requiredMessage="Ingresa una contraseña"></p:password>
                             </div>
                             <div style="margin-top:10px" class="form-group">

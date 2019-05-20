@@ -138,7 +138,7 @@ public class CarritoBean implements Serializable {
                     detalleOrdenService.insertar(detalleOrden);
                 }
                  FacesContext.getCurrentInstance().addMessage("messagesCart",
-                        new FacesMessage(FacesMessage.SEVERITY_INFO, "Exito", "La orden de ha creado correctamente"));
+                        new FacesMessage(FacesMessage.SEVERITY_INFO, "Exito", "La orden se ha creado correctamente"));
                  vaciarCarrito();
                  FacesContext.getCurrentInstance().addMessage("messagesCart",
                         new FacesMessage(FacesMessage.SEVERITY_INFO, "Exito", "PDF generado correctamente"));
