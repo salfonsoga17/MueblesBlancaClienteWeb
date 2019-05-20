@@ -7,6 +7,7 @@ package mueblesblanca.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import mueblesblanca.constante.EstadoEnum;
 import mueblesblanca.vo.OrdenCompraVO;
@@ -15,7 +16,6 @@ import mueblesblanca.vo.OrdenCompraVO;
  *
  * @author Sergio AlfonsoG
  */
-
 public class OrdenCompraDAOMS extends ConexionSQL implements OrdenCompraDAO {
 
     @Override
@@ -25,17 +25,23 @@ public class OrdenCompraDAOMS extends ConexionSQL implements OrdenCompraDAO {
             this.Conectar();
 
             String consulta = "INSERT INTO OrdenCompra (IdPersonaOrdenCompra, FechaCompraOrdenCompra, "
-                            + "FechaPagoOrdenCompra, TotalOrdenCompra) "
-                            + "VALUES(?, GETDATE(), ?, ?) ";
+                    + "FechaPagoOrdenCompra, TotalOrdenCompra) "
+                    + "VALUES(?, GETDATE(), ?, ?) ";
 
             System.out.println("QUERY insertar " + consulta);
-            PreparedStatement pstm = this.conection.prepareStatement(consulta);
+            PreparedStatement pstm = this.conection.prepareStatement(consulta, Statement.RETURN_GENERATED_KEYS);
 
-            pstm.setInt(1, ordenCompraVO.getIdPersonaOrdenCompra().getIdPersona());
+            pstm.setInt(1, ordenCompraVO.getPersonaOrdenCompra().getIdPersona());
             pstm.setTimestamp(2, ordenCompraVO.getFechaPagoOrdenCompra());
             pstm.setBigDecimal(3, ordenCompraVO.getTotalOrdenCompra());
 
             resultado = pstm.executeUpdate();
+            // esto se hace para recuperar el id de la orden
+            ResultSet generatedKeys = pstm.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                resultado = generatedKeys.getInt(1);
+            }
+            
         } catch (Exception e) {
             System.out.println(" OrdenCompraDAOMS: Se presento un error al insertar una Orden de Compra."
                     + e.getMessage());
@@ -63,10 +69,10 @@ public class OrdenCompraDAOMS extends ConexionSQL implements OrdenCompraDAO {
             System.out.println("QUERY insertar " + consulta);
             PreparedStatement pstm = this.conection.prepareStatement(consulta);
 
-            pstm.setInt(1, ordenCompraVO.getIdPersonaOrdenCompra().getIdPersona());
+            pstm.setInt(1, ordenCompraVO.getPersonaOrdenCompra().getIdPersona());
             pstm.setTimestamp(2, ordenCompraVO.getFechaPagoOrdenCompra());
             pstm.setBigDecimal(3, ordenCompraVO.getTotalOrdenCompra());
-            
+
             pstm.setInt(4, ordenCompraVO.getIdOrdenCompra());
 
             resultado = pstm.executeUpdate();
@@ -111,8 +117,8 @@ public class OrdenCompraDAOMS extends ConexionSQL implements OrdenCompraDAO {
         try {
             this.Conectar();
             String consulta = "SELECT IdOrdenCompra, IdPersonaOrdenCompra, FechaCompraOrdenCompra, "
-                            + "FechaPagoOrdenCompra, TotalOrdenCompra "
-                            + "FROM OrdenCompra ";
+                    + "FechaPagoOrdenCompra, TotalOrdenCompra "
+                    + "FROM OrdenCompra ";
 
             System.out.println("QUERY listar " + consulta);
             PreparedStatement pstm = this.conection.prepareStatement(consulta);
@@ -123,7 +129,7 @@ public class OrdenCompraDAOMS extends ConexionSQL implements OrdenCompraDAO {
                 int t = 1;
                 ordenCompraVO = new OrdenCompraVO();
                 ordenCompraVO.setIdOrdenCompra(rs.getInt(t++));
-                ordenCompraVO.getIdPersonaOrdenCompra().setIdPersona(rs.getInt(t++));
+                ordenCompraVO.getPersonaOrdenCompra().setIdPersona(rs.getInt(t++));
                 ordenCompraVO.setFechaCompraOrdenCompra(rs.getTimestamp(t++));
                 ordenCompraVO.setFechaPagoOrdenCompra(rs.getTimestamp(t++));
                 ordenCompraVO.setTotalOrdenCompra(rs.getBigDecimal(t++));
@@ -146,8 +152,8 @@ public class OrdenCompraDAOMS extends ConexionSQL implements OrdenCompraDAO {
         try {
             this.Conectar();
             String consulta = "SELECT IdOrdenCompra, IdPersonaOrdenCompra, FechaCompraOrdenCompra, "
-                            + "FechaPagoOrdenCompra, TotalOrdenCompra "
-                            + "FROM OrdenCompra WHERE IdOrdenCompra = ?  ";
+                    + "FechaPagoOrdenCompra, TotalOrdenCompra "
+                    + "FROM OrdenCompra WHERE IdOrdenCompra = ?  ";
 
             System.out.println("QUERY consultarPorId " + consulta);
             PreparedStatement pstm = this.conection.prepareStatement(consulta);
@@ -158,7 +164,7 @@ public class OrdenCompraDAOMS extends ConexionSQL implements OrdenCompraDAO {
                 int t = 1;
                 ordenCompraVO = new OrdenCompraVO();
                 ordenCompraVO.setIdOrdenCompra(rs.getInt(t++));
-                ordenCompraVO.getIdPersonaOrdenCompra().setIdPersona(rs.getInt(t++));
+                ordenCompraVO.getPersonaOrdenCompra().setIdPersona(rs.getInt(t++));
                 ordenCompraVO.setFechaCompraOrdenCompra(rs.getTimestamp(t++));
                 ordenCompraVO.setFechaPagoOrdenCompra(rs.getTimestamp(t++));
                 ordenCompraVO.setTotalOrdenCompra(rs.getBigDecimal(t++));

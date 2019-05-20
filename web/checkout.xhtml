@@ -33,7 +33,7 @@
                 width: 210px;
                 margin: 0 auto;
             }
-            body .ui-button {
+            body .value-plus, .value-minus {
                 background-color: #FFF;
             }
             .value-minus, .value-plus {
@@ -157,11 +157,14 @@
                             <a href="checkout.xhtml">
                                 <h3> <div class="total">
                                         <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
-                                        <span class="simpleCart_totala"><h:outputText value="$ #{CarritoBean.total}" /></span> (<span class="simpleCart_quantit"><h:outputText value="#{CarritoBean.items.size()}"/></span> productos)</div>
+                                        <span class="simpleCart_totala"><h:outputText value="#{CarritoBean.total}" > <f:convertNumber currencySymbol='$ ' groupingUsed='true' maxFractionDigits='0' type='currency' locale='es_CO' />
+                                            </h:outputText></span> (<span class="simpleCart_quantit">
+
+                                            <h:outputText value="#{CarritoBean.items.size()}"/></span> productos)</div>
                                 </h3>
                             </a>
                             <p>
-                              <p:commandLink action="#{CarritoBean.vaciarCarrito}" styleClass="simpleCart_empty" value="Vaciar Carrito" ajax="false"/>
+                                <p:commandLink action="#{CarritoBean.vaciarCarrito}" styleClass="simpleCart_empty" value="Vaciar Carrito" ajax="false"/>
                             </p>
                         </div>	
                     </div>
@@ -194,7 +197,7 @@
                             </tr>
                         </thead>
                         <!-- Inicio producto-->
-
+                        <p:growl id="growl" for="messagesCart" showDetail="true" ></p:growl>
                         <h:form id="form">
                             <p:repeat value="#{CarritoBean.items}" var="item" >
 
@@ -233,22 +236,6 @@
                                 <!--fin producto -->
                             </p:repeat>
                         </h:form>
-
-                        <!--quantity
-                        <script>
-                            $('.value-plus').on('click', function () {
-                                var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) + 1;
-                                divUpd.text(newVal);
-                            });
-
-                            $('.value-minus').on('click', function () {
-                                var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) - 1;
-                                if (newVal >= 1)
-                                    divUpd.text(newVal);
-                            });
-                        </script>
-                        -->
-                        <!--quantity-->
                     </table>
                 </div>
                 <div class="checkout-left">	
@@ -261,20 +248,30 @@
                         <ul>
                             <p:repeat value="#{CarritoBean.items}" var="item">
                                 <li> #{item.producto.nombreProducto} <i>-</i> <span><h:outputText id="ValorItemCesta" value="#{item.valorTotal}">
-                                                                                      <f:convertNumber currencySymbol='$ ' groupingUsed='true' maxFractionDigits='0' type='currency' locale='es_CO' />
-                                                                                  </h:outputText>
-                                                                              </span></li>
+                                            <f:convertNumber currencySymbol='$ ' groupingUsed='true' maxFractionDigits='0' type='currency' locale='es_CO' />
+                                        </h:outputText>
+                                    </span></li>
                             </p:repeat>
                             <li>Total <i>-</i> <span><h:outputText id="total" value="#{CarritoBean.total}" >
-                                                       <f:convertNumber currencySymbol='$ ' groupingUsed='true' maxFractionDigits='0' type='currency' locale='es_CO' />
-                                                   </h:outputText>
-                                               </span></li>
-                            </ul>
+                                        <f:convertNumber currencySymbol='$ ' groupingUsed='true' maxFractionDigits='0' type='currency' locale='es_CO' />
+                                    </h:outputText>
+                                </span></li>
+                        </ul>
+
                     </div>
-                    <div class="clearfix"> </div>
+                    <div class="clearfix"></div>
                 </div>
             </div>
         </div>	
+        <div class="row" style="margin-bottom: 15px;">
+            <div class="col-sm-10"></div>
+            <div class="col-sm-2">
+                <h:form>
+                    <p:commandButton value="comprar" action="#{CarritoBean.comprar}"  update="growl,@form" onclick="PF('statusDialog').show();" styleClass="btn btn-primary"></p:commandButton> 
+                </h:form>
+            </div>
+        </div>
+
         <!-- //check out -->
         <!-- //product-nav -->
         <div class="coupons">

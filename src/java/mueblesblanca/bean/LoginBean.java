@@ -82,4 +82,5 @@ public class LoginBean implements Serializable {
     public void setUser(PersonaVO user) {
         this.user = user;
     }
+
 }
