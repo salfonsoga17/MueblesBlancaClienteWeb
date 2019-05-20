@@ -140,7 +140,9 @@ public class CarritoBean implements Serializable {
                  FacesContext.getCurrentInstance().addMessage("messagesCart",
                         new FacesMessage(FacesMessage.SEVERITY_INFO, "Exito", "La orden de ha creado correctamente"));
                  vaciarCarrito();
-                 pdfCreator.generateBill("C:/Users/jhons/Desktop/sample.pdf", ordenCompra);
+                 FacesContext.getCurrentInstance().addMessage("messagesCart",
+                        new FacesMessage(FacesMessage.SEVERITY_INFO, "Exito", "PDF generado correctamente"));
+                 pdfCreator.generateBill("C:/Users/sergg/Desktop/sample.pdf", ordenCompra);
             }
         } catch (Exception ex) {
             System.out.println("Error CarritoBean: " + ex.getMessage());

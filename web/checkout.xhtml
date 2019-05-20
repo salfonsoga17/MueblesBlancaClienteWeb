@@ -57,7 +57,15 @@
             }
             body .ui-button.ui-state-focus{
                 background-color: #fff;
-            }</style>
+            }
+            body .ui-state-hover{
+                background-color: #FDA30E!important;
+            }   
+            body .ui-widget-content {
+                background-color: #ffffff;
+                border: none;
+            }        
+        </style>
     </h:head>
     <h:body>
         <div class="header-bot">
@@ -90,7 +98,7 @@
                 </div>
                 <div class="col-md-3 header-right footer-bottom">
                     <ul>
-                        <li><a href="login.xhtml" class="use1" ><span>Iniciar Sesion</span> </a></li>
+                        <li><a href="login.xhtml" class="use1" ><span><h:outputText value="Iniciar Sesion" rendered="#{loginBean.user != null}" ></h:outputText></span></a></li>
                         <li><a class="fb" href="https://www.facebook.com/MueblesBlancaCol/"></a></li>
                         <li><a class="insta" href="https://www.instagram.com/mueblesblanca/"></a></li>
                         <li><a></a></li>
@@ -260,17 +268,17 @@
 
                     </div>
                     <div class="clearfix"></div>
+                    <div class="row" style="margin-bottom: 15px; margin-top: 15px;">
+                        <div class="col-sm-10"></div>
+                        <div class="col-sm-2">
+                            <h:form>
+                                <p:commandButton value="comprar" action="#{CarritoBean.comprar}"  update="growl,@form" onclick="PF('statusDialog').show();" styleClass="item_add single-item hvr-outline-out button2"></p:commandButton> 
+                            </h:form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>	
-        <div class="row" style="margin-bottom: 15px;">
-            <div class="col-sm-10"></div>
-            <div class="col-sm-2">
-                <h:form>
-                    <p:commandButton value="comprar" action="#{CarritoBean.comprar}"  update="growl,@form" onclick="PF('statusDialog').show();" styleClass="btn btn-primary"></p:commandButton> 
-                </h:form>
-            </div>
-        </div>
 
         <!-- //check out -->
         <!-- //product-nav -->
