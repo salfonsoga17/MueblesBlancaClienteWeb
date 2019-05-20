@@ -40,3 +40,5 @@ build/web/WEB-INF/menu_1.xhtml
  nbproject/private/private.xml	# Package Files #
 src/java/mueblesblanca/dao/ConexionSQL.java
 /nbproject/private/private.xml
+nbproject/build-impl.xml~
+src/java/mueblesblanca/dao/ConexionSQL.java

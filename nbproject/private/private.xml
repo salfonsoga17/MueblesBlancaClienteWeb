@@ -3,10 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/jhons/Documents/NetBeansProjects/MueblesBlancaClienteWeb/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/jhons/Documents/NetBeansProjects/MueblesBlancaClienteWeb/web/index.xhtml</file>
-            <file>file:/C:/Users/jhons/Documents/NetBeansProjects/MueblesBlancaClienteWeb/web/login.xhtml</file>
-            <file>file:/C:/Users/jhons/Documents/NetBeansProjects/MueblesBlancaClienteWeb/src/java/mueblesblanca/bean/LoginBean.java</file>
+            <file>file:/C:/Proyectos/MueblesBlancaClienteWeb/src/java/mueblesblanca/dao/ConexionSQL.java</file>
+            <file>file:/C:/Proyectos/MueblesBlancaClienteWeb/web/css/lib/bootstrap.min.css</file>
         </group>
     </open-files>
 </project-private>
