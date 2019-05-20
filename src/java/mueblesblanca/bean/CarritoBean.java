@@ -8,8 +8,6 @@ package mueblesblanca.bean;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.application.Application;
 import javax.faces.application.FacesMessage;
@@ -74,6 +72,9 @@ public class CarritoBean implements Serializable {
         items.add(new Item(producto, cantidad));
         calcularTotal();
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("carrito", this.items);
+    }
+    public void agregarProducto(ProductoVO producto, String cantidad) throws Exception {
+        this.agregarProducto(producto, Integer.parseInt(cantidad));
     }
 
     public void borrarProducto(ProductoVO producto) {

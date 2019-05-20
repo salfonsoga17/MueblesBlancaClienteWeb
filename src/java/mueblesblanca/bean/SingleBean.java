@@ -6,10 +6,15 @@
 package mueblesblanca.bean;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.application.Application;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import mueblesblanca.service.ProductoService;
@@ -19,11 +24,13 @@ import mueblesblanca.vo.ProductoVO;
  *
  * @author Sergio AlfonsoG
  */
-
 @ManagedBean(name = "singleBean")
 @ViewScoped
 public class SingleBean {
 
+    @ManagedProperty(value= "#{CarritoBean}")
+    private CarritoBean carritoBean;
+    
     private Integer idProducto;
     private String nombreProducto;
     private String descripcionProducto;
@@ -43,10 +50,12 @@ public class SingleBean {
     private ProductoService productoService;
     private ProductoVO productoVO;
     private String nombreCategoria;
-    
+    private String quantity;
     //Listas
     private List<ProductoVO> productos;
-
+    
+    
+    
     @PostConstruct
     public void init() {
         if (FacesContext.getCurrentInstance() != null) {
@@ -57,7 +66,7 @@ public class SingleBean {
                 setProductoService(new ProductoService());
                 setProductoVO(new ProductoVO());
                 setProductos(productoService.listarPorCategoria(selectedCategoria));
-
+                quantity = new String();
             } catch (Exception e) {
 
             }
@@ -71,7 +80,7 @@ public class SingleBean {
         idProductoVista = getIdProducto();
         setProductoVO(getProductoService().consultarPorId(idProductoVista));
     }
-    
+
     public void productosPorCategoria() throws Exception {
         System.out.println("IdCategoria " + getSelectedCategoria());
         int idProductoVista;
@@ -240,4 +249,32 @@ public class SingleBean {
         this.nombreCategoria = nombreCategoria;
     }
 
+    public String getQuantity() {
+        System.out.println(quantity);
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        System.out.println(quantity);
+        this.quantity = quantity;
+    }
+
+    public void agregarProducto(){
+        try {
+            carritoBean.agregarProducto(productoVO, quantity);
+        } catch (Exception ex) {
+            Logger.getLogger(SingleBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public CarritoBean getCarritoBean() {
+        return carritoBean;
+    }
+
+    public void setCarritoBean(CarritoBean carritoBean) {
+        this.carritoBean = carritoBean;
+    }
+
+   
+    
 }
