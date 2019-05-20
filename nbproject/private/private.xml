@@ -3,10 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/jhons/Documents/NetBeansProjects/MueblesBlancaClienteWeb/web/WEB-INF/web.xml</file>
             <file>file:/C:/Users/jhons/Documents/NetBeansProjects/MueblesBlancaClienteWeb/web/index.xhtml</file>
+            <file>file:/C:/Users/jhons/Documents/NetBeansProjects/MueblesBlancaClienteWeb/src/java/mueblesblanca/bean/RegisterBean.java</file>
+            <file>file:/C:/Users/jhons/Documents/NetBeansProjects/MueblesBlancaClienteWeb/src/java/mueblesblanca/bean/SingleBean.java</file>
+            <file>file:/C:/Users/jhons/Documents/NetBeansProjects/MueblesBlancaClienteWeb/web/css/style.css</file>
+            <file>file:/C:/Users/jhons/Documents/NetBeansProjects/MueblesBlancaClienteWeb/src/java/mueblesblanca/service/OrdenCompraService.java</file>
+            <file>file:/C:/Users/jhons/Documents/NetBeansProjects/MueblesBlancaClienteWeb/web/single.xhtml</file>
+            <file>file:/C:/Users/jhons/Documents/NetBeansProjects/MueblesBlancaClienteWeb/src/java/mueblesblanca/bean/CarritoBean.java</file>
             <file>file:/C:/Users/jhons/Documents/NetBeansProjects/MueblesBlancaClienteWeb/web/login.xhtml</file>
-            <file>file:/C:/Users/jhons/Documents/NetBeansProjects/MueblesBlancaClienteWeb/src/java/mueblesblanca/bean/LoginBean.java</file>
+            <file>file:/C:/Users/jhons/Documents/NetBeansProjects/MueblesBlancaClienteWeb/src/java/mueblesblanca/util/PDFCreator.java</file>
+            <file>file:/C:/Users/jhons/Documents/NetBeansProjects/MueblesBlancaClienteWeb/web/checkout.xhtml</file>
         </group>
     </open-files>
 </project-private>

@@ -17,6 +17,7 @@ import javax.faces.context.FacesContext;
 import mueblesblanca.service.DetalleOrdenService;
 import mueblesblanca.service.OrdenCompraService;
 import mueblesblanca.service.ProductoService;
+import mueblesblanca.util.PDFCreator;
 import mueblesblanca.vo.DetalleOrdenVO;
 import mueblesblanca.vo.Item;
 import mueblesblanca.vo.OrdenCompraVO;
@@ -36,6 +37,7 @@ public class CarritoBean implements Serializable {
     private BigDecimal total;
     private OrdenCompraService ordenCompraService;
     private DetalleOrdenService detalleOrdenService;
+    private PDFCreator pdfCreator;
 
     @PostConstruct
     public void postConstruct() {
@@ -54,6 +56,7 @@ public class CarritoBean implements Serializable {
                 productoService = new ProductoService();
                 ordenCompraService = new OrdenCompraService();
                 detalleOrdenService = new DetalleOrdenService();
+                pdfCreator = new PDFCreator();
                 calcularTotal();
             } catch (Exception e) {
             }
@@ -137,6 +140,7 @@ public class CarritoBean implements Serializable {
                  FacesContext.getCurrentInstance().addMessage("messagesCart",
                         new FacesMessage(FacesMessage.SEVERITY_INFO, "Exito", "La orden de ha creado correctamente"));
                  vaciarCarrito();
+                 pdfCreator.generateBill("C:/Users/jhons/Desktop/sample.pdf", ordenCompra);
             }
         } catch (Exception ex) {
             System.out.println("Error CarritoBean: " + ex.getMessage());

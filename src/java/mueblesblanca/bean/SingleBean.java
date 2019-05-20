@@ -274,7 +274,4 @@ public class SingleBean {
     public void setCarritoBean(CarritoBean carritoBean) {
         this.carritoBean = carritoBean;
     }
-
-   
-    
 }
