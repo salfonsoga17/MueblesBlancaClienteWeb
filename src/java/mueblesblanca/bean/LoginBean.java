@@ -8,6 +8,12 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import mueblesblanca.service.PersonaService;
 import mueblesblanca.vo.PersonaVO;
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 /**
  *
@@ -49,6 +55,41 @@ public class LoginBean implements Serializable {
 
     public void logout() {
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().clear();
+    }
+    
+    public String recoveryPass() throws Exception{
+        try {
+            if (email != null) {
+                PersonaVO persona = userService.consultByEmail(email);
+                if (persona != null){
+                    Properties props = new Properties();            
+                    props.setProperty("mail.smtp.host", "smtp.gmail.com"); // Nombre del host de correo, es smtp.gmail.com
+                    props.setProperty("mail.smtp.starttls.enable", "true"); // TLS si está disponible
+                    props.setProperty("mail.smtp.port","587"); // Puerto de gmail para envio de correos
+                    props.setProperty("mail.smtp.user", "muebles.blanca.sistema@gmail.com"); // Nombre del usuario
+                    props.setProperty("mail.smtp.auth", "true"); // Si requiere o no usuario y password para conectarse.
+                    Session session = Session.getDefaultInstance(props);
+                    session.setDebug(true);
+
+                    MimeMessage message = new MimeMessage(session);
+                    message.setFrom(new InternetAddress("muebles.blanca.sistema@gmail.com")); // Quien envia el correo                
+                    message.addRecipient(Message.RecipientType.TO, new InternetAddress(persona.getEmailPersona())); // A quien va dirigido
+                    message.setSubject("Recuperar contraseña cliente web");
+                    message.setText("Su cuenta ha sido restablecida con exito."
+                                  + "<h3><b>correo:</b> " + persona.getEmailPersona() + ".</h3>"
+                                  + "<h3><b>contraseña:</b> " + persona.getPasswordPersona() + ".</h3>", "ISO-8859-1", "html");
+                    Transport t = session.getTransport("smtp");
+                    t.connect("muebles.blanca.sistema@gmail.com","Blanca123");
+                    t.sendMessage(message,message.getAllRecipients());
+                    t.close(); 
+                    return "/login.xhtml?faces-redirect=true";
+                } 
+            }         
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage("messagesApp",
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", e.getMessage()));
+        }
+        return "";
     }
 
     public String getEmail() {

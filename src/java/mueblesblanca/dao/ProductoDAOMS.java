@@ -25,9 +25,8 @@ public class ProductoDAOMS extends ConexionSQL implements ProductoDAO {
         try {
             this.Conectar();
             String consulta = "SELECT IdProducto, NombreProducto, DescripcionProducto, AltoProducto, AnchoProducto, ColorProducto, "
-                            + "MaterialProducto, GarantiaMesesProducto, ValorUnitarioProducto, IdImagenProducto, IdModeloProducto, "
-                            + "IdCategoriaProducto, FechaCreacionProducto, UsuarioCreacionProducto, FechaModificacionProducto, "
-                            + "UsuarioModificacionProducto, EstadoProducto, im.CodigoImagen FROM Producto "
+                            + "MaterialProducto, GarantiaMesesProducto, ValorUnitarioProducto, IdCategoriaProducto, FechaCreacionProducto,"
+                            + "UsuarioCreacionProducto, FechaModificacionProducto, UsuarioModificacionProducto, EstadoProducto, im.CodigoImagen FROM Producto"
                             + " JOIN Imagen im ON Producto.IdProducto = im.IdProductoImagen "
                             + "WHERE EstadoProducto <> ? ";
 
@@ -48,8 +47,6 @@ public class ProductoDAOMS extends ConexionSQL implements ProductoDAO {
                 productoVO.setMaterialProducto(rs.getString(t++));
                 productoVO.setGarantiaMesesProducto(rs.getInt(t++));
                 productoVO.setValorUnitarioProducto(rs.getBigDecimal(t++));
-                productoVO.getImagenProducto().setIdImagen(rs.getInt(t++));
-                productoVO.getModeloProducto().setIdModelo(rs.getInt(t++));
                 productoVO.getCategoriaProducto().setIdCategoria(rs.getInt(t++));               
                 productoVO.setFechaCreacionProducto(rs.getTimestamp(t++));
                 productoVO.setUsuarioCreacionProducto(rs.getString(t++));
@@ -76,9 +73,8 @@ public class ProductoDAOMS extends ConexionSQL implements ProductoDAO {
         try {
             this.Conectar();
             String consulta = "SELECT IdProducto, NombreProducto, DescripcionProducto, AltoProducto, AnchoProducto, ColorProducto, "
-                            + "MaterialProducto, GarantiaMesesProducto, ValorUnitarioProducto, IdImagenProducto, IdModeloProducto, "
-                            + "IdCategoriaProducto, FechaCreacionProducto, UsuarioCreacionProducto, FechaModificacionProducto, "
-                            + "UsuarioModificacionProducto, EstadoProducto, im.CodigoImagen FROM Producto "
+                            + "MaterialProducto, GarantiaMesesProducto, ValorUnitarioProducto, IdCategoriaProducto, FechaCreacionProducto, "
+                            + "UsuarioCreacionProducto, FechaModificacionProducto, UsuarioModificacionProducto, EstadoProducto, im.CodigoImagen FROM Producto"
                             + " JOIN Imagen im ON Producto.IdProducto = im.IdProductoImagen "
                             + "WHERE IdProducto = ? ";
 
@@ -99,8 +95,6 @@ public class ProductoDAOMS extends ConexionSQL implements ProductoDAO {
                 productoVO.setMaterialProducto(rs.getString(t++));
                 productoVO.setGarantiaMesesProducto(rs.getInt(t++));
                 productoVO.setValorUnitarioProducto(rs.getBigDecimal(t++));
-                productoVO.getImagenProducto().setIdImagen(rs.getInt(t++));
-                productoVO.getModeloProducto().setIdModelo(rs.getInt(t++));
                 productoVO.getCategoriaProducto().setIdCategoria(rs.getInt(t++));               
                 productoVO.setFechaCreacionProducto(rs.getTimestamp(t++));
                 productoVO.setUsuarioCreacionProducto(rs.getString(t++));
@@ -126,9 +120,8 @@ public class ProductoDAOMS extends ConexionSQL implements ProductoDAO {
         try {
             this.Conectar();
             String consulta = "SELECT IdProducto, NombreProducto, DescripcionProducto, AltoProducto, AnchoProducto, ColorProducto, "
-                            + "MaterialProducto, GarantiaMesesProducto, ValorUnitarioProducto, IdImagenProducto, IdModeloProducto, "
-                            + "IdCategoriaProducto, FechaCreacionProducto, UsuarioCreacionProducto, FechaModificacionProducto, "
-                            + "UsuarioModificacionProducto, EstadoProducto, im.CodigoImagen FROM Producto "
+                            + "MaterialProducto, GarantiaMesesProducto, ValorUnitarioProducto, IdCategoriaProducto, FechaCreacionProducto, "
+                            + "UsuarioCreacionProducto, FechaModificacionProducto, UsuarioModificacionProducto, EstadoProducto, im.CodigoImagen FROM Producto" 
                             + " JOIN Imagen im ON Producto.IdProducto = im.IdProductoImagen "
                             + "WHERE IdCategoriaProducto = ? ";
 
@@ -149,8 +142,6 @@ public class ProductoDAOMS extends ConexionSQL implements ProductoDAO {
                 productoVO.setMaterialProducto(rs.getString(t++));
                 productoVO.setGarantiaMesesProducto(rs.getInt(t++));
                 productoVO.setValorUnitarioProducto(rs.getBigDecimal(t++));
-                productoVO.getImagenProducto().setIdImagen(rs.getInt(t++));
-                productoVO.getModeloProducto().setIdModelo(rs.getInt(t++));
                 productoVO.getCategoriaProducto().setIdCategoria(rs.getInt(t++));               
                 productoVO.setFechaCreacionProducto(rs.getTimestamp(t++));
                 productoVO.setUsuarioCreacionProducto(rs.getString(t++));
