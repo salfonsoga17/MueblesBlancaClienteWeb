@@ -69,7 +69,7 @@ public class RegisterBean implements Serializable {
             personaVO.setTipoDocumentoPersona(new TipoDocumentoVO());
             personaVO.getTipoDocumentoPersona().setIdTipoDocumento(1);
             personaVO.setRolPersona(new RolVO());
-            personaVO.getRolPersona().setIdRol(1);
+            personaVO.getRolPersona().setIdRol(2);
             if (personaService.insertar(personaVO) > 0) {
                 FacesContext.getCurrentInstance().addMessage("messagesRegister",
                     new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Se ha creado la Cuenta"));
