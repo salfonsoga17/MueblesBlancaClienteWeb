@@ -26,8 +26,10 @@ public class ProductoDAOMS extends ConexionSQL implements ProductoDAO {
             this.Conectar();
             String consulta = "SELECT IdProducto, NombreProducto, DescripcionProducto, AltoProducto, AnchoProducto, ColorProducto, "
                             + "MaterialProducto, GarantiaMesesProducto, ValorUnitarioProducto, IdCategoriaProducto, FechaCreacionProducto,"
-                            + "UsuarioCreacionProducto, FechaModificacionProducto, UsuarioModificacionProducto, EstadoProducto, im.CodigoImagen FROM Producto"
+                            + "UsuarioCreacionProducto, FechaModificacionProducto, UsuarioModificacionProducto, "
+                            + "EstadoProducto, im.CodigoImagen, mo.RutaModelo FROM Producto"
                             + " JOIN Imagen im ON Producto.IdProducto = im.IdProductoImagen "
+                            + " LEFT JOIN Modelo mo ON Producto.IdProducto = mo.IdProductoModelo "
                             + "WHERE EstadoProducto <> ? ";
 
             System.out.println("QUERY listar " + consulta);
@@ -54,6 +56,7 @@ public class ProductoDAOMS extends ConexionSQL implements ProductoDAO {
                 productoVO.setUsuarioModificacionProducto(rs.getString(t++));
                 productoVO.setEstadoProducto(rs.getInt(t++));
                 productoVO.getImagenProducto().setCodigoImagen(rs.getBytes(t++));
+                productoVO.getModeloProducto().setRutaModelo(rs.getString(t++));
                 
                 lista.add(productoVO);
             }
@@ -74,8 +77,10 @@ public class ProductoDAOMS extends ConexionSQL implements ProductoDAO {
             this.Conectar();
             String consulta = "SELECT IdProducto, NombreProducto, DescripcionProducto, AltoProducto, AnchoProducto, ColorProducto, "
                             + "MaterialProducto, GarantiaMesesProducto, ValorUnitarioProducto, IdCategoriaProducto, FechaCreacionProducto, "
-                            + "UsuarioCreacionProducto, FechaModificacionProducto, UsuarioModificacionProducto, EstadoProducto, im.CodigoImagen FROM Producto"
+                            + "UsuarioCreacionProducto, FechaModificacionProducto, UsuarioModificacionProducto, "
+                            + "EstadoProducto, im.CodigoImagen, mo.RutaModelo FROM Producto"
                             + " JOIN Imagen im ON Producto.IdProducto = im.IdProductoImagen "
+                            + " LEFT JOIN Modelo mo ON Producto.IdProducto = mo.IdProductoModelo "
                             + "WHERE IdProducto = ? ";
 
             System.out.println("QUERY consultarPorId " + consulta);
@@ -102,6 +107,7 @@ public class ProductoDAOMS extends ConexionSQL implements ProductoDAO {
                 productoVO.setUsuarioModificacionProducto(rs.getString(t++));
                 productoVO.setEstadoProducto(rs.getInt(t++));
                 productoVO.getImagenProducto().setCodigoImagen(rs.getBytes(t++));
+                productoVO.getModeloProducto().setRutaModelo(rs.getString(t++));
                 
             }
 
@@ -121,8 +127,10 @@ public class ProductoDAOMS extends ConexionSQL implements ProductoDAO {
             this.Conectar();
             String consulta = "SELECT IdProducto, NombreProducto, DescripcionProducto, AltoProducto, AnchoProducto, ColorProducto, "
                             + "MaterialProducto, GarantiaMesesProducto, ValorUnitarioProducto, IdCategoriaProducto, FechaCreacionProducto, "
-                            + "UsuarioCreacionProducto, FechaModificacionProducto, UsuarioModificacionProducto, EstadoProducto, im.CodigoImagen FROM Producto" 
+                            + "UsuarioCreacionProducto, FechaModificacionProducto, UsuarioModificacionProducto, "
+                            + "EstadoProducto, im.CodigoImagen, mo.RutaModelo FROM Producto" 
                             + " JOIN Imagen im ON Producto.IdProducto = im.IdProductoImagen "
+                            + " LEFT JOIN Modelo mo ON Producto.IdProducto = mo.IdProductoModelo "
                             + "WHERE IdCategoriaProducto = ? ";
 
             System.out.println("QUERY listar " + consulta);
@@ -149,6 +157,7 @@ public class ProductoDAOMS extends ConexionSQL implements ProductoDAO {
                 productoVO.setUsuarioModificacionProducto(rs.getString(t++));
                 productoVO.setEstadoProducto(rs.getInt(t++));
                 productoVO.getImagenProducto().setCodigoImagen(rs.getBytes(t++));
+                productoVO.getModeloProducto().setRutaModelo(rs.getString(t++));
                 
                 lista.add(productoVO);
             }

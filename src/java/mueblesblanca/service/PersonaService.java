@@ -99,9 +99,11 @@ public class PersonaService {
     }
 
     public PersonaVO authenticateUser(String email, String password) throws Exception {
+       
         PersonaVO usuario = consultByEmail(email);
         if (usuario != null) {
-            if (usuario.getPasswordPersona().equals(convertSHA256(password))) {
+            String clave = usuario.getPasswordPersona();
+            if (clave.equals(password)) {
                 return usuario;
             } else {
                 throw new Exception("Contraseña Incorrecta");

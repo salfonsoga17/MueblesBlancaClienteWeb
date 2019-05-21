@@ -24,7 +24,7 @@ public class DetalleOrdenDAOMS extends ConexionSQL implements DetalleOrdenDAO {
             this.Conectar();
 
             String consulta = "INSERT INTO DetalleOrden (IdOrdenCompraDetalleOrden, IdProductoDetalleOrden, "
-                    + "CantidadDetalleOrden, SubtotalDetalleOrden) "
+                    + "CantidadDetalleOrden, Subtotal) "
                     + "VALUES(?, ?, ?, ?) ";
 
             System.out.println("QUERY insertar " + consulta);

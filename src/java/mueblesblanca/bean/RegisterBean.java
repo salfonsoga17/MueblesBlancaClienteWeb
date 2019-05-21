@@ -63,7 +63,7 @@ public class RegisterBean implements Serializable {
             personaVO.setPrimerApellidoPersona(firstSurname);
             personaVO.setSegundoApellidoPersona(secondSurname);
             personaVO.setNumeroIdentificacionPersona(new Long(personalId));
-            personaVO.setPasswordPersona(personaService.convertSHA256(password));
+            personaVO.setPasswordPersona(password);
             personaVO.setDireccionPersona(address);
             personaVO.setCelularPersonaNatural(new Long(phoneNumber));
             personaVO.setTipoDocumentoPersona(new TipoDocumentoVO());
